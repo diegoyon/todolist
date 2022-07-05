@@ -8,6 +8,9 @@ iconVert.src = Vert;
 const tasks = new ToDoTasks();
 tasks.addTask("este es un nuevo task1");
 tasks.addTask("este es un nuevo task2");
+tasks.addTask("este es un nuevo task3");
+tasks.removeTask(2);
+tasks.removeTask(1);
 console.log(tasks);
 const list = document.querySelector("ul");
 
