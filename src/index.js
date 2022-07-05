@@ -22,6 +22,10 @@ let toDoTasks = [
 const list = document.querySelector("ul");
 
 function displayTasks(arr) {
+  //Sorts the array of objects according to their index
+  toDoTasks.sort((a, b) => a.index - b.index);
+
+  //Iterates the array and displays them
   for (let i = 0; i < arr.length; i++) {
     const item = document.createElement("li");
     item.innerHTML = arr[i].description;
