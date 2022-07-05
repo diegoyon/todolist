@@ -3,9 +3,9 @@ export default class ToDoTasks {
     this.list = [];
   }
 
-  addTask(description) {
+  addTask(taskDescription) {
     const task = {
-      description: description,
+      description: taskDescription,
       completed: false,
       index: this.list.length + 1,
     };
@@ -18,5 +18,10 @@ export default class ToDoTasks {
     for (let i = 0; i < this.list.length; i++) {
       this.list[i].index = i + 1;
     }
+  }
+
+  editTask(newDescription, index) {
+    // console.log(this.list[].description);
+    this.list[index - 1].description = newDescription;
   }
 }

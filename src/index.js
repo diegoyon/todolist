@@ -11,6 +11,7 @@ tasks.addTask("este es un nuevo task2");
 tasks.addTask("este es un nuevo task3");
 tasks.removeTask(2);
 tasks.removeTask(1);
+tasks.editTask("new description", 1);
 console.log(tasks);
 const list = document.querySelector("ul");
 
