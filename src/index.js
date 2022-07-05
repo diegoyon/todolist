@@ -1,14 +1,20 @@
 import _ from "lodash";
 import "./style.css";
 
-function component() {
-  const element = document.createElement("div");
-
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-  element.classList.add("hello");
-
-  return element;
-}
-
-document.body.appendChild(component());
+let toDoTasks = [
+  {
+    description: "wash the car",
+    bool: false,
+    index: 1,
+  },
+  {
+    description: "buy food",
+    bool: false,
+    index: 2,
+  },
+  {
+    description: "send email",
+    bool: false,
+    index: 3,
+  },
+];
