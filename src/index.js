@@ -18,3 +18,15 @@ let toDoTasks = [
     index: 3,
   },
 ];
+
+const list = document.querySelector("ul");
+
+function displayTasks(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    const item = document.createElement("li");
+    item.innerHTML = arr[i].description;
+    list.appendChild(item);
+  }
+}
+
+displayTasks(toDoTasks);
