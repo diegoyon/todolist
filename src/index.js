@@ -1,5 +1,9 @@
 import _ from "lodash";
 import "./style.css";
+import Vert from "../icons/vert.png";
+
+let iconVert = new Image();
+iconVert.src = Vert;
 
 let toDoTasks = [
   {
@@ -28,7 +32,7 @@ function displayTasks(arr) {
   //Iterates the array and displays them
   for (let i = 0; i < arr.length; i++) {
     const item = document.createElement("li");
-    item.innerHTML = arr[i].description;
+    item.innerHTML = `<div><input type="checkbox"><p>${arr[i].description}</p></div><img src="${iconVert.src}" alt="vert" />`;
     list.appendChild(item);
   }
 }
