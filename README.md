@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awesome books
+# To Do List
 
 > In this project I made a simple To Do List that allows the user to add tasks, edit them, mark as "completed" and/or delete them.
 
