@@ -1,14 +1,39 @@
-import _ from "lodash";
-import "./style.css";
+import './style.css';
+import Vert from '../icons/vert.png';
 
-function component() {
-  const element = document.createElement("div");
+const iconVert = new Image();
+iconVert.src = Vert;
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-  element.classList.add("hello");
+const toDoTasks = [
+  {
+    description: 'wash the car',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: 'buy food',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: 'send email',
+    completed: false,
+    index: 3,
+  },
+];
 
-  return element;
+const list = document.querySelector('ul');
+
+function displayTasks(arr) {
+  // Sorts the array of objects according to their index
+  toDoTasks.sort((a, b) => a.index - b.index);
+
+  // Iterates the array and displays them
+  for (let i = 0; i < arr.length; i += 1) {
+    const item = document.createElement('li');
+    item.innerHTML = `<div><input type="checkbox"><p>${arr[i].description}</p></div><img src="${iconVert.src}" alt="vert" />`;
+    list.appendChild(item);
+  }
 }
 
-document.body.appendChild(component());
+displayTasks(toDoTasks);

@@ -1,7 +1,115 @@
-.hello {
-  color: red;
+/* roboto-regular - latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/roboto-v30-latin-regular.eot"); /* IE9 Compat Modes */
+  src:
+    local(""),
+    url("../fonts/roboto-v30-latin-regular.eot?#iefix")
+    format("embedded-opentype"),
+    url("../fonts/roboto-v30-latin-regular.woff2") format("woff2"),
+    url("../fonts/roboto-v30-latin-regular.woff") format("woff"),
+    url("../font    to-v30-latin-regular.ttf") format("truetype"),
+    url("../fonts/roboto-v    in-regular.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 body {
-  background-color: bisque;
+  background-color: #f6f6f6;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  width: 450px;
+  margin: 3rem auto;
+  box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;
+}
+
+ul li img {
+  height: 16px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background-color: white;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.title-container img {
+  height: 16px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.8rem;
+  background-color: white;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.input-container img {
+  height: 12px;
+}
+
+input {
+  border: none;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+input::placeholder {
+  font-style: italic;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+ul li {
+  padding: 0.8rem;
+  background-color: white;
+  border-bottom: 1px solid #c0c0c0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul li div {
+  display: flex;
+  align-items: center;
+}
+
+ul li div p {
+  margin-left: 0.8rem;
+}
+
+ul li input {
+  height: 14px;
+  width: 14px;
+}
+
+a {
+  color: black;
+  padding: 0.8rem;
+  width: fit-content;
+  align-self: center;
 }
