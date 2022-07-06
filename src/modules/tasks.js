@@ -21,7 +21,14 @@ export default class ToDoTasks {
   }
 
   editTask(newDescription, index) {
-    // console.log(this.list[].description);
     this.list[index - 1].description = newDescription;
+  }
+
+  toggleComplete(index) {
+    if (this.list[index - 1].completed) {
+      this.list[index - 1].completed = false;
+    } else {
+      this.list[index - 1].completed = true;
+    }
   }
 }
