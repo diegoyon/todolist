@@ -80,6 +80,10 @@ input::placeholder {
   font-style: italic;
 }
 
+input:focus {
+  outline: none;
+}
+
 ul {
   display: flex;
   flex-direction: column;
@@ -87,7 +91,7 @@ ul {
 }
 
 ul li {
-  padding: 0.8rem;
+  padding: 0 0.8rem;
   background-color: white;
   border-bottom: 1px solid #c0c0c0;
   display: flex;
@@ -98,15 +102,18 @@ ul li {
 ul li div {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
-ul li div p {
-  margin-left: 0.8rem;
+.task {
+  padding: 0.8rem;
+  background: transparent;
 }
 
-ul li input {
+.check {
   height: 14px;
   width: 14px;
+  padding: 0.8rem;
 }
 
 a {
@@ -114,4 +121,8 @@ a {
   padding: 0.8rem;
   width: fit-content;
   align-self: center;
+}
+
+.highlight {
+  background-color: #fffeca;
 }
