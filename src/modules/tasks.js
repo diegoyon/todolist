@@ -14,8 +14,8 @@ export default class ToDoTasks {
 
   removeTask(index) {
     this.list = this.list.filter((item) => item.index !== index);
-    //update indices
-    for (let i = 0; i < this.list.length; i++) {
+    // update indices
+    for (let i = 0; i < this.list.length; i += 1) {
       this.list[i].index = i + 1;
     }
   }
