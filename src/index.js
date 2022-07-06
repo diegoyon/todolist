@@ -14,6 +14,11 @@ iconTrash.src = TrashCan;
 import ToDoTasks from "./modules/tasks.js";
 const tasks = new ToDoTasks();
 
+if (localStorage.getItem("data") !== null) {
+  // If there is data stored, set collection to that data
+  tasks.list = JSON.parse(localStorage.getItem("data"));
+}
+
 const list = document.querySelector("ul");
 
 function displayTasks(arr) {
@@ -23,8 +28,16 @@ function displayTasks(arr) {
   // Iterates the array and displays them
   for (let i = 0; i < arr.length; i += 1) {
     const item = document.createElement("li");
-    item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${arr[i].description}" /></div><img src="${iconVert.src}" alt="vert" />`;
+    item.className = i + 1;
+    item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${arr[i].description}" /></div><img src="${iconVert.src}" alt="threeDots" />`;
     list.appendChild(item);
+
+    // Add event listeners when focus and unfocus
+    item.addEventListener("focusin", highlight);
+    item.addEventListener("focusout", unhighlight);
+
+    const input = item.querySelector(".task");
+    input.addEventListener("input", editElement);
   }
 }
 
@@ -35,7 +48,7 @@ displayTasks(tasks.list);
 function addSingleTask(taskDescription, taskIndex) {
   const item = document.createElement("li");
   item.className = taskIndex;
-  item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${iconVert.src}" alt="vert" />`;
+  item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${iconVert.src}" alt="threeDots" />`;
   list.appendChild(item);
 
   // Add event listeners when focus and unfocus
@@ -43,7 +56,7 @@ function addSingleTask(taskDescription, taskIndex) {
   item.addEventListener("focusout", unhighlight);
 
   const input = item.querySelector(".task");
-  input.addEventListener("input", editTask);
+  input.addEventListener("input", editElement);
 }
 
 // Get the main-input element
@@ -59,9 +72,11 @@ function addAndDisplay(event) {
       tasks.list[tasks.list.length - 1].index
     );
     mainInput.value = "";
+    localStorage.setItem("data", JSON.stringify(tasks.list));
   }
 }
 
+// Highlights the li element and displays the trashcan icon
 function highlight(event) {
   const clickedElement = event.target;
   const parent = clickedElement.parentNode.parentNode;
@@ -69,16 +84,18 @@ function highlight(event) {
   const image = parent.querySelector("img");
   image.src = iconTrash.src;
   image.alt = "trashicon";
-  image.addEventListener("click", removeItem);
+  image.addEventListener("mousedown", removeItem);
 }
 
+// Unhighlights the li element and changes back the icon
 function unhighlight(event) {
   const clickedElement = event.target;
   const parent = clickedElement.parentNode.parentNode;
   parent.classList.remove("highlight");
   const image = parent.querySelector("img");
   image.src = iconVert.src;
-  image.alt = "vert";
+  image.alt = "threeDots";
+  image.removeEventListener("mousedown", removeItem);
 }
 
 function removeItem(event) {
@@ -86,10 +103,17 @@ function removeItem(event) {
   index = parseInt(index);
   tasks.removeTask(index);
 
+  // Removes element from DOM
   event.target.parentNode.remove();
+
+  // Updates DOM indexes
   updateDomIndexes();
+
+  // Updates local storage without the removed element
+  localStorage.setItem("data", JSON.stringify(tasks.list));
 }
 
+// Updates the indexes of each element
 function updateDomIndexes() {
   const parent = document.querySelector("ul");
   const elements = parent.querySelectorAll("li");
@@ -98,11 +122,16 @@ function updateDomIndexes() {
   }
 }
 
-function editTask(event) {
+function editElement(event) {
+  // Gets the value of the input
   const newDescription = event.target.value;
+
+  // Gets the class index of the parent
   const parentClass = event.target.parentNode.parentNode.className;
   let index = parentClass.replace(/\D/g, "");
   index = parseInt(index);
   tasks.editTask(newDescription, index);
-  console.log(tasks.list);
+
+  // Stores new edited data
+  localStorage.setItem("data", JSON.stringify(tasks.list));
 }
