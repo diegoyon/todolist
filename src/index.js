@@ -107,6 +107,7 @@ function displayTasks(arr) {
   for (let i = 0; i < arr.length; i += 1) {
     const item = document.createElement("li");
     item.className = i + 1;
+
     item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${arr[i].description}" /></div><img src="${Vert}" alt="threeDots" />`;
     list.appendChild(item);
 
@@ -120,6 +121,12 @@ function displayTasks(arr) {
 
     const input = item.querySelector(".task");
     input.addEventListener("input", editElement);
+
+    if (arr[i].completed) {
+      check.checked = true;
+      input.style.textDecoration = "line-through";
+      input.style.color = "gray";
+    }
   }
 }
 
