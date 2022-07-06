@@ -163,3 +163,24 @@ function addAndDisplay(event) {
 }
 
 mainInput.addEventListener("keydown", addAndDisplay);
+
+const clear = document.querySelector("a");
+clear.addEventListener("click", clearAllCompleted);
+
+function clearAllCompleted() {
+  tasks.clearCompleted();
+  localStorage.setItem("data", JSON.stringify(tasks.list));
+  removeCompletedElements();
+  updateDomIndexes();
+}
+
+function removeCompletedElements() {
+  const parent = document.querySelector("ul");
+  const element = parent.querySelectorAll("li");
+  for (let i = 0; i < element.length; i += 1) {
+    const task = element[i].querySelector(".task");
+    if (task.style.textDecoration == "line-through") {
+      element[i].remove();
+    }
+  }
+}

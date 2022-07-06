@@ -31,4 +31,12 @@ export default class ToDoTasks {
       this.list[index - 1].completed = true;
     }
   }
+
+  clearCompleted() {
+    this.list = this.list.filter((item) => item.completed !== true);
+    // update indices
+    for (let i = 0; i < this.list.length; i += 1) {
+      this.list[i].index = i + 1;
+    }
+  }
 }
