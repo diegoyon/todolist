@@ -13,6 +13,7 @@ module.exports = {
     hot: true,
     liveReload: true,
   },
+  devtool: 'source-map', // maps the correct line of error in the source code
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -22,6 +23,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    assetModuleFilename: '[name][ext]', // makes the assets conserve their name when build
   },
   module: {
     rules: [
