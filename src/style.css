@@ -15,16 +15,13 @@ body {
   background-color: #f6f6f6;
 }
 
-img {
-  cursor: pointer;
-}
-
 .content {
   display: flex;
   flex-direction: column;
   border: none;
   width: 450px;
   margin: 3rem auto;
+  background-color: #c0c0c0;
   box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;
 }
 
@@ -76,12 +73,13 @@ ul {
   display: flex;
   flex-direction: column;
   text-align: start;
+  gap: 1px;
 }
 
 ul li {
   padding: 0 0.8rem;
   background-color: white;
-  border-bottom: 1px solid #c0c0c0;
+  /* border-bottom: 1px solid #c0c0c0; */
   display: flex;
   justify-content: space-between;
   align-items: center;
