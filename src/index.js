@@ -62,7 +62,7 @@ function unhighlight(event) {
   const image = parent.querySelector("img");
   image.src = Vert;
   image.alt = "threeDots";
-  // image.style.cursor = "move";
+  image.style.cursor = "default";
   image.removeEventListener("mousedown", removeItem);
 }
 
@@ -115,6 +115,8 @@ function displayTasks(arr) {
 displayTasks(tasks.list);
 
 let dragged;
+let cOffX;
+let cOffY;
 
 function handleDragStart(e) {
   this.style.opacity = "0.5";
@@ -123,7 +125,6 @@ function handleDragStart(e) {
 
   e.dataTransfer.effectAllowed = "move";
   e.dataTransfer.setData("text/html", this.innerHTML);
-  console.log(e.dataTransfer);
 }
 
 function handleDragEnd() {
@@ -139,7 +140,6 @@ function handleDragOver(e) {
   if (e.preventDefault) {
     e.preventDefault();
   }
-
   return false;
 }
 
@@ -166,6 +166,14 @@ function handleDrop(e) {
 
     const input = item.querySelector(".task");
     input.addEventListener("input", editElement);
+
+    const threeDots = item.querySelector("img");
+    threeDots.addEventListener("mousedown", function () {
+      item.setAttribute("draggable", true);
+    });
+    threeDots.addEventListener("mouseout", function () {
+      item.setAttribute("draggable", false);
+    });
   });
 
   updateTaskListAndLocalStorage();
@@ -177,13 +185,21 @@ function handleDrop(e) {
 function addSingleTask(taskDescription, taskIndex, taskCompleted) {
   const item = document.createElement("li");
   item.className = taskIndex;
-  item.setAttribute("draggable", true);
+  // item.setAttribute("draggable", true);
   item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${Vert}" alt="threeDots" />`;
   list.appendChild(item);
 
   // Add cursor: move to three dots image
   const threeDots = item.querySelector("img");
-  item.style.cursor = "move";
+  threeDots.addEventListener("mousedown", function () {
+    item.setAttribute("draggable", true);
+  });
+  threeDots.addEventListener("mouseout", function () {
+    item.setAttribute("draggable", false);
+  });
+  // item.style.cursor = "move";
+  threeDots.style.cursor = "move";
+  threeDots.setAttribute("draggable", false);
 
   item.addEventListener("dragstart", handleDragStart);
   item.addEventListener("dragover", handleDragOver);
