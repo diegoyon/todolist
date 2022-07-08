@@ -50,6 +50,7 @@ function highlight(event) {
   const image = parent.querySelector('img');
   image.src = TrashCan;
   image.alt = 'trashicon';
+  image.style.cursor = 'pointer';
   image.addEventListener('mousedown', removeItem);
 }
 
@@ -61,6 +62,7 @@ function unhighlight(event) {
   const image = parent.querySelector('img');
   image.src = Vert;
   image.alt = 'threeDots';
+  image.style.cursor = 'move';
   image.removeEventListener('mousedown', removeItem);
 }
 
@@ -99,22 +101,65 @@ function markComplete(event) {
   }
 }
 
-function displayTasks(arr) {
-  // Sorts the array of objects according to their index
-  tasks.list.sort((a, b) => a.index - b.index);
+function updateTaskListAndLocalStorage() {
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    const input = item.querySelector('.task');
+    tasks.list[item.className - 1].description = input.value;
+    tasks.list[item.className - 1].index = parseInt(item.className, 10);
+    tasks.list[item.className - 1].completed = input.style.textDecoration === 'line-through';
+    const check = item.querySelector('.check');
+    if (input.style.textDecoration === 'line-through') {
+      check.checked = true;
+    }
+  });
+  localStorage.setItem('data', JSON.stringify(tasks.list));
+}
 
-  // Iterates the array and displays them
-  for (let i = 0; i < arr.length; i += 1) {
-    const item = document.createElement('li');
-    item.className = i + 1;
+let dragged;
 
-    item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${arr[i].description}" /></div><img src="${Vert}" alt="threeDots" />`;
-    list.appendChild(item);
+function handleDragStart(e) {
+  this.style.opacity = '0.5';
 
-    // Add event listeners when focus and unfocus
-    item.addEventListener('focusin', highlight);
-    item.addEventListener('focusout', unhighlight);
+  dragged = e.target;
 
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+}
+
+function handleDragEnd() {
+  this.style.opacity = '1';
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    item.style.border = 'none';
+  });
+  this.style.border = 'none';
+}
+
+function handleDragOver(e) {
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  return false;
+}
+
+function handleDragEnter() {
+  this.style.border = '3px solid blue';
+}
+
+function handleDragLeave() {
+  this.style.border = 'none';
+}
+
+function handleDrop(e) {
+  e.stopPropagation();
+  if (dragged !== this) {
+    dragged.innerHTML = this.innerHTML;
+    this.innerHTML = e.dataTransfer.getData('text/html');
+  }
+
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
     // Add event listeners to checkbox input
     const check = item.querySelector('.check');
     check.addEventListener('change', markComplete);
@@ -122,23 +167,45 @@ function displayTasks(arr) {
     const input = item.querySelector('.task');
     input.addEventListener('input', editElement);
 
-    if (arr[i].completed) {
-      check.checked = true;
-      input.style.textDecoration = 'line-through';
-      input.style.color = 'gray';
-    }
-  }
+    const threeDots = item.querySelector('img');
+    threeDots.addEventListener('mousedown', () => {
+      item.setAttribute('draggable', true);
+    });
+    threeDots.addEventListener('mouseout', () => {
+      item.setAttribute('draggable', false);
+    });
+  });
+
+  updateTaskListAndLocalStorage();
+
+  return false;
 }
 
-// Displays the list of tasks
-displayTasks(tasks.list);
-
 // Adds a single task to the DOM
-function addSingleTask(taskDescription, taskIndex) {
+function addSingleTask(taskDescription, taskIndex, taskCompleted) {
   const item = document.createElement('li');
   item.className = taskIndex;
   item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${Vert}" alt="threeDots" />`;
   list.appendChild(item);
+
+  // Add cursor: move to three dots image
+  const threeDots = item.querySelector('img');
+  threeDots.addEventListener('mousedown', () => {
+    item.setAttribute('draggable', true);
+  });
+  threeDots.addEventListener('mouseout', () => {
+    item.setAttribute('draggable', false);
+  });
+  // item.style.cursor = "move";
+  threeDots.style.cursor = 'move';
+  threeDots.setAttribute('draggable', false);
+
+  item.addEventListener('dragstart', handleDragStart);
+  item.addEventListener('dragover', handleDragOver);
+  item.addEventListener('dragenter', handleDragEnter);
+  item.addEventListener('dragleave', handleDragLeave);
+  item.addEventListener('dragend', handleDragEnd);
+  item.addEventListener('drop', handleDrop);
 
   // Add event listeners when focus and unfocus
   item.addEventListener('focusin', highlight);
@@ -150,7 +217,26 @@ function addSingleTask(taskDescription, taskIndex) {
 
   const input = item.querySelector('.task');
   input.addEventListener('input', editElement);
+
+  if (taskCompleted) {
+    check.checked = true;
+    input.style.textDecoration = 'line-through';
+    input.style.color = 'gray';
+  }
 }
+
+function displayTasks(arr) {
+  // Sorts the array of objects according to their index
+  tasks.list.sort((a, b) => a.index - b.index);
+
+  // Iterates the array and displays them
+  for (let i = 0; i < arr.length; i += 1) {
+    addSingleTask(arr[i].description, i + 1, arr[i].completed);
+  }
+}
+
+// Displays the list of tasks
+displayTasks(tasks.list);
 
 // Get the main-input element
 const mainInput = document.querySelector('.main-input');

@@ -11,6 +11,10 @@
 - JavaScript
 - Webpack
 
+## Live Demo
+
+[ToDoList](https://diegoyon.github.io/todolist/dist)
+
 ## Getting Started
 
 To obtain a local copy of the project follow this steps:
