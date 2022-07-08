@@ -115,8 +115,6 @@ function displayTasks(arr) {
 displayTasks(tasks.list);
 
 let dragged;
-let cOffX;
-let cOffY;
 
 function handleDragStart(e) {
   this.style.opacity = "0.5";
@@ -185,7 +183,6 @@ function handleDrop(e) {
 function addSingleTask(taskDescription, taskIndex, taskCompleted) {
   const item = document.createElement("li");
   item.className = taskIndex;
-  // item.setAttribute("draggable", true);
   item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${Vert}" alt="threeDots" />`;
   list.appendChild(item);
 
