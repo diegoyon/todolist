@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  text-decoration: none;\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n}\r\n\r\nbody {\r\n  background-color: #f6f6f6;\r\n}\r\n\r\nimg {\r\n  cursor: pointer;\r\n}\r\n\r\n.content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border: none;\r\n  width: 450px;\r\n  margin: 3rem auto;\r\n  box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;\r\n}\r\n\r\nul li img {\r\n  height: 16px;\r\n}\r\n\r\n.title-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.title-container img {\r\n  height: 16px;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding-right: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.input-container img {\r\n  height: 12px;\r\n}\r\n\r\ninput {\r\n  border: none;\r\n  padding: 0.8rem;\r\n  width: 100%;\r\n}\r\n\r\ninput::placeholder {\r\n  font-style: italic;\r\n}\r\n\r\ninput:focus {\r\n  outline: none;\r\n}\r\n\r\nul {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: start;\r\n}\r\n\r\nul li {\r\n  padding: 0 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nul li div {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.task {\r\n  padding: 0.8rem;\r\n  background: transparent;\r\n}\r\n\r\n.check {\r\n  height: 14px;\r\n  width: 14px;\r\n  padding: 0.8rem;\r\n}\r\n\r\na {\r\n  color: black;\r\n  padding: 0.8rem;\r\n  width: fit-content;\r\n  align-self: center;\r\n}\r\n\r\n.highlight {\r\n  background-color: #fffeca;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;EACE,sBAAsB;EACtB,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,qBAAqB;EACrB,iCAAiC;EACjC,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,YAAY;EACZ,YAAY;EACZ,iBAAiB;EACjB,0EAA0E;AAC5E;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,uBAAuB;EACvB,gCAAgC;AAClC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,gCAAgC;AAClC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,eAAe;EACf,WAAW;AACb;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,iBAAiB;AACnB;;AAEA;EACE,iBAAiB;EACjB,uBAAuB;EACvB,gCAAgC;EAChC,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,WAAW;AACb;;AAEA;EACE,eAAe;EACf,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,eAAe;EACf,kBAAkB;EAClB,kBAAkB;AACpB;;AAEA;EACE,yBAAyB;AAC3B","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap\");\r\n\r\n* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  text-decoration: none;\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n}\r\n\r\nbody {\r\n  background-color: #f6f6f6;\r\n}\r\n\r\nimg {\r\n  cursor: pointer;\r\n}\r\n\r\n.content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border: none;\r\n  width: 450px;\r\n  margin: 3rem auto;\r\n  box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;\r\n}\r\n\r\nul li img {\r\n  height: 16px;\r\n}\r\n\r\n.title-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.title-container img {\r\n  height: 16px;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding-right: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.input-container img {\r\n  height: 12px;\r\n}\r\n\r\ninput {\r\n  border: none;\r\n  padding: 0.8rem;\r\n  width: 100%;\r\n}\r\n\r\ninput::placeholder {\r\n  font-style: italic;\r\n}\r\n\r\ninput:focus {\r\n  outline: none;\r\n}\r\n\r\nul {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: start;\r\n}\r\n\r\nul li {\r\n  padding: 0 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nul li div {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.task {\r\n  padding: 0.8rem;\r\n  background: transparent;\r\n}\r\n\r\n.check {\r\n  height: 14px;\r\n  width: 14px;\r\n  padding: 0.8rem;\r\n}\r\n\r\na {\r\n  color: black;\r\n  padding: 0.8rem;\r\n  width: fit-content;\r\n  align-self: center;\r\n}\r\n\r\n.highlight {\r\n  background-color: #fffeca;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  text-decoration: none;\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n}\r\n\r\nbody {\r\n  background-color: #f6f6f6;\r\n}\r\n\r\n.content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border: none;\r\n  width: 450px;\r\n  margin: 3rem auto;\r\n  background-color: #c0c0c0;\r\n  box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;\r\n}\r\n\r\nul li img {\r\n  height: 16px;\r\n}\r\n\r\n.title-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.title-container img {\r\n  height: 16px;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding-right: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.input-container img {\r\n  height: 12px;\r\n}\r\n\r\ninput {\r\n  border: none;\r\n  padding: 0.8rem;\r\n  width: 100%;\r\n}\r\n\r\ninput::placeholder {\r\n  font-style: italic;\r\n}\r\n\r\ninput:focus {\r\n  outline: none;\r\n}\r\n\r\nul {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: start;\r\n  gap: 1px;\r\n}\r\n\r\nul li {\r\n  padding: 0 0.8rem;\r\n  background-color: white;\r\n\r\n  /* border-bottom: 1px solid #c0c0c0; */\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nul li div {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.task {\r\n  padding: 0.8rem;\r\n  background: transparent;\r\n}\r\n\r\n.check {\r\n  height: 14px;\r\n  width: 14px;\r\n  padding: 0.8rem;\r\n}\r\n\r\na {\r\n  color: black;\r\n  padding: 0.8rem;\r\n  width: fit-content;\r\n  align-self: center;\r\n}\r\n\r\n.highlight {\r\n  background-color: #fffeca;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;EACE,sBAAsB;EACtB,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,qBAAqB;EACrB,iCAAiC;EACjC,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,YAAY;EACZ,YAAY;EACZ,iBAAiB;EACjB,yBAAyB;EACzB,0EAA0E;AAC5E;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,uBAAuB;EACvB,gCAAgC;AAClC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,gCAAgC;AAClC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,eAAe;EACf,WAAW;AACb;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,iBAAiB;EACjB,QAAQ;AACV;;AAEA;EACE,iBAAiB;EACjB,uBAAuB;;EAEvB,sCAAsC;EACtC,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,WAAW;AACb;;AAEA;EACE,eAAe;EACf,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,eAAe;EACf,kBAAkB;EAClB,kBAAkB;AACpB;;AAEA;EACE,yBAAyB;AAC3B","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap\");\r\n\r\n* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  text-decoration: none;\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n}\r\n\r\nbody {\r\n  background-color: #f6f6f6;\r\n}\r\n\r\n.content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border: none;\r\n  width: 450px;\r\n  margin: 3rem auto;\r\n  background-color: #c0c0c0;\r\n  box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;\r\n}\r\n\r\nul li img {\r\n  height: 16px;\r\n}\r\n\r\n.title-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.title-container img {\r\n  height: 16px;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding-right: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.input-container img {\r\n  height: 12px;\r\n}\r\n\r\ninput {\r\n  border: none;\r\n  padding: 0.8rem;\r\n  width: 100%;\r\n}\r\n\r\ninput::placeholder {\r\n  font-style: italic;\r\n}\r\n\r\ninput:focus {\r\n  outline: none;\r\n}\r\n\r\nul {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: start;\r\n  gap: 1px;\r\n}\r\n\r\nul li {\r\n  padding: 0 0.8rem;\r\n  background-color: white;\r\n\r\n  /* border-bottom: 1px solid #c0c0c0; */\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nul li div {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.task {\r\n  padding: 0.8rem;\r\n  background: transparent;\r\n}\r\n\r\n.check {\r\n  height: 14px;\r\n  width: 14px;\r\n  padding: 0.8rem;\r\n}\r\n\r\na {\r\n  color: black;\r\n  padding: 0.8rem;\r\n  width: fit-content;\r\n  align-self: center;\r\n}\r\n\r\n.highlight {\r\n  background-color: #fffeca;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -736,17 +736,17 @@ __webpack_require__.r(__webpack_exports__);
 
 const tasks = new _modules_tasks_js__WEBPACK_IMPORTED_MODULE_3__["default"]();
 
-if (localStorage.getItem("data") !== null) {
+if (localStorage.getItem('data') !== null) {
   // If there is data stored, set collection to that data
-  tasks.list = JSON.parse(localStorage.getItem("data"));
+  tasks.list = JSON.parse(localStorage.getItem('data'));
 }
 
-const list = document.querySelector("ul");
+const list = document.querySelector('ul');
 
 // Updates the indexes of each element
 function updateDomIndexes() {
-  const parent = document.querySelector("ul");
-  const elements = parent.querySelectorAll("li");
+  const parent = document.querySelector('ul');
+  const elements = parent.querySelectorAll('li');
   for (let i = 0; i < elements.length; i += 1) {
     elements[i].className = i + 1;
   }
@@ -764,29 +764,31 @@ function removeItem(event) {
   updateDomIndexes();
 
   // Updates local storage without the removed element
-  localStorage.setItem("data", JSON.stringify(tasks.list));
+  localStorage.setItem('data', JSON.stringify(tasks.list));
 }
 
 // Highlights the li element and displays the trashcan icon
 function highlight(event) {
   const clickedElement = event.target;
   const parent = clickedElement.parentNode.parentNode;
-  parent.classList.add("highlight");
-  const image = parent.querySelector("img");
+  parent.classList.add('highlight');
+  const image = parent.querySelector('img');
   image.src = _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_2__;
-  image.alt = "trashicon";
-  image.addEventListener("mousedown", removeItem);
+  image.alt = 'trashicon';
+  image.style.cursor = 'pointer';
+  image.addEventListener('mousedown', removeItem);
 }
 
 // Unhighlights the li element and changes back the icon
 function unhighlight(event) {
   const clickedElement = event.target;
   const parent = clickedElement.parentNode.parentNode;
-  parent.classList.remove("highlight");
-  const image = parent.querySelector("img");
+  parent.classList.remove('highlight');
+  const image = parent.querySelector('img');
   image.src = _icons_vert_png__WEBPACK_IMPORTED_MODULE_1__;
-  image.alt = "threeDots";
-  image.removeEventListener("mousedown", removeItem);
+  image.alt = 'threeDots';
+  image.style.cursor = 'move';
+  image.removeEventListener('mousedown', removeItem);
 }
 
 function editElement(event) {
@@ -795,32 +797,156 @@ function editElement(event) {
 
   // Gets the class index of the parent
   const parentClass = event.target.parentNode.parentNode.className;
-  let index = parentClass.replace(/\D/g, "");
+  let index = parentClass.replace(/\D/g, '');
   index = parseInt(index, 10);
   tasks.editTask(newDescription, index);
 
   // Stores new edited data
-  localStorage.setItem("data", JSON.stringify(tasks.list));
+  localStorage.setItem('data', JSON.stringify(tasks.list));
 }
 
 function markComplete(event) {
   // Gets the class index of the parent
   const parentClass = event.target.parentNode.parentNode.className;
-  let index = parentClass.replace(/\D/g, "");
+  let index = parentClass.replace(/\D/g, '');
   index = parseInt(index, 10);
 
   const parent = event.target.parentNode.parentNode;
-  const input = parent.querySelector(".task");
+  const input = parent.querySelector('.task');
   if (event.target.checked) {
-    input.style.textDecoration = "line-through";
-    input.style.color = "gray";
+    input.style.textDecoration = 'line-through';
+    input.style.color = 'gray';
     tasks.toggleComplete(index);
-    localStorage.setItem("data", JSON.stringify(tasks.list));
+    localStorage.setItem('data', JSON.stringify(tasks.list));
   } else {
-    input.style.textDecoration = "none";
-    input.style.color = "black";
+    input.style.textDecoration = 'none';
+    input.style.color = 'black';
     tasks.toggleComplete(index);
-    localStorage.setItem("data", JSON.stringify(tasks.list));
+    localStorage.setItem('data', JSON.stringify(tasks.list));
+  }
+}
+
+function updateTaskListAndLocalStorage() {
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    const input = item.querySelector('.task');
+    tasks.list[item.className - 1].description = input.value;
+    tasks.list[item.className - 1].index = parseInt(item.className, 10);
+    tasks.list[item.className - 1].completed = input.style.textDecoration === 'line-through';
+    const check = item.querySelector('.check');
+    if (input.style.textDecoration === 'line-through') {
+      check.checked = true;
+    }
+  });
+  localStorage.setItem('data', JSON.stringify(tasks.list));
+}
+
+let dragged;
+
+function handleDragStart(e) {
+  this.style.opacity = '0.5';
+
+  dragged = e.target;
+
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+}
+
+function handleDragEnd() {
+  this.style.opacity = '1';
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    item.style.border = 'none';
+  });
+  this.style.border = 'none';
+}
+
+function handleDragOver(e) {
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  return false;
+}
+
+function handleDragEnter() {
+  this.style.border = '3px solid blue';
+}
+
+function handleDragLeave() {
+  this.style.border = 'none';
+}
+
+function handleDrop(e) {
+  e.stopPropagation();
+  if (dragged !== this) {
+    dragged.innerHTML = this.innerHTML;
+    this.innerHTML = e.dataTransfer.getData('text/html');
+  }
+
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    // Add event listeners to checkbox input
+    const check = item.querySelector('.check');
+    check.addEventListener('change', markComplete);
+
+    const input = item.querySelector('.task');
+    input.addEventListener('input', editElement);
+
+    const threeDots = item.querySelector('img');
+    threeDots.addEventListener('mousedown', () => {
+      item.setAttribute('draggable', true);
+    });
+    threeDots.addEventListener('mouseout', () => {
+      item.setAttribute('draggable', false);
+    });
+  });
+
+  updateTaskListAndLocalStorage();
+
+  return false;
+}
+
+// Adds a single task to the DOM
+function addSingleTask(taskDescription, taskIndex, taskCompleted) {
+  const item = document.createElement('li');
+  item.className = taskIndex;
+  item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${_icons_vert_png__WEBPACK_IMPORTED_MODULE_1__}" alt="threeDots" />`;
+  list.appendChild(item);
+
+  // Add cursor: move to three dots image
+  const threeDots = item.querySelector('img');
+  threeDots.addEventListener('mousedown', () => {
+    item.setAttribute('draggable', true);
+  });
+  threeDots.addEventListener('mouseout', () => {
+    item.setAttribute('draggable', false);
+  });
+  // item.style.cursor = "move";
+  threeDots.style.cursor = 'move';
+  threeDots.setAttribute('draggable', false);
+
+  item.addEventListener('dragstart', handleDragStart);
+  item.addEventListener('dragover', handleDragOver);
+  item.addEventListener('dragenter', handleDragEnter);
+  item.addEventListener('dragleave', handleDragLeave);
+  item.addEventListener('dragend', handleDragEnd);
+  item.addEventListener('drop', handleDrop);
+
+  // Add event listeners when focus and unfocus
+  item.addEventListener('focusin', highlight);
+  item.addEventListener('focusout', unhighlight);
+
+  // Add event listeners to checkbox input
+  const check = item.querySelector('.check');
+  check.addEventListener('change', markComplete);
+
+  const input = item.querySelector('.task');
+  input.addEventListener('input', editElement);
+
+  if (taskCompleted) {
+    check.checked = true;
+    input.style.textDecoration = 'line-through';
+    input.style.color = 'gray';
   }
 }
 
@@ -830,82 +956,38 @@ function displayTasks(arr) {
 
   // Iterates the array and displays them
   for (let i = 0; i < arr.length; i += 1) {
-    const item = document.createElement("li");
-    item.className = i + 1;
-
-    item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${arr[i].description}" /></div><img src="${_icons_vert_png__WEBPACK_IMPORTED_MODULE_1__}" alt="threeDots" />`;
-    list.appendChild(item);
-
-    // Add event listeners when focus and unfocus
-    item.addEventListener("focusin", highlight);
-    item.addEventListener("focusout", unhighlight);
-
-    item.addEventListener("drag", dragging);
-
-    // Add event listeners to checkbox input
-    const check = item.querySelector(".check");
-    check.addEventListener("change", markComplete);
-
-    const input = item.querySelector(".task");
-    input.addEventListener("input", editElement);
-
-    if (arr[i].completed) {
-      check.checked = true;
-      input.style.textDecoration = "line-through";
-      input.style.color = "gray";
-    }
+    addSingleTask(arr[i].description, i + 1, arr[i].completed);
   }
 }
-
-function dragging() {}
 
 // Displays the list of tasks
 displayTasks(tasks.list);
 
-// Adds a single task to the DOM
-function addSingleTask(taskDescription, taskIndex) {
-  const item = document.createElement("li");
-  item.className = taskIndex;
-  item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${_icons_vert_png__WEBPACK_IMPORTED_MODULE_1__}" alt="threeDots" />`;
-  list.appendChild(item);
-
-  // Add event listeners when focus and unfocus
-  item.addEventListener("focusin", highlight);
-  item.addEventListener("focusout", unhighlight);
-
-  // Add event listeners to checkbox input
-  const check = item.querySelector(".check");
-  check.addEventListener("change", markComplete);
-
-  const input = item.querySelector(".task");
-  input.addEventListener("input", editElement);
-}
-
 // Get the main-input element
-const mainInput = document.querySelector(".main-input");
+const mainInput = document.querySelector('.main-input');
 
 // Adds the tasks to the array and the DOM
 function addAndDisplay(event) {
-  if (event.key === "Enter") {
+  if (event.key === 'Enter') {
     tasks.addTask(mainInput.value);
     addSingleTask(
       tasks.list[tasks.list.length - 1].description,
-      tasks.list[tasks.list.length - 1].index
+      tasks.list[tasks.list.length - 1].index,
     );
 
-    mainInput.value = "";
-    localStorage.setItem("data", JSON.stringify(tasks.list));
+    mainInput.value = '';
+    localStorage.setItem('data', JSON.stringify(tasks.list));
   }
 }
 
-mainInput.addEventListener("keydown", addAndDisplay);
+mainInput.addEventListener('keydown', addAndDisplay);
 
 function removeCompletedElements() {
-  const parent = document.querySelector("ul");
-  const element = parent.querySelectorAll("li");
+  const parent = document.querySelector('ul');
+  const element = parent.querySelectorAll('li');
   for (let i = 0; i < element.length; i += 1) {
-    const task = element[i].querySelector(".task");
-    if (task.style.textDecoration === "line-through") {
+    const task = element[i].querySelector('.task');
+    if (task.style.textDecoration === 'line-through') {
       element[i].remove();
     }
   }
@@ -913,13 +995,13 @@ function removeCompletedElements() {
 
 function clearAllCompleted() {
   tasks.clearCompleted();
-  localStorage.setItem("data", JSON.stringify(tasks.list));
+  localStorage.setItem('data', JSON.stringify(tasks.list));
   removeCompletedElements();
   updateDomIndexes();
 }
 
-const clear = document.querySelector("a");
-clear.addEventListener("click", clearAllCompleted);
+const clear = document.querySelector('a');
+clear.addEventListener('click', clearAllCompleted);
 
 })();
 
