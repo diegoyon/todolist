@@ -531,6 +531,328 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/add-task.js":
+/*!*********************************!*\
+  !*** ./src/modules/add-task.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addSingleTask)
+/* harmony export */ });
+/* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../icons/vert.png */ "./icons/vert.png");
+/* harmony import */ var _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./drag-and-drop.js */ "./src/modules/drag-and-drop.js");
+/* harmony import */ var _highlight__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./highlight */ "./src/modules/highlight.js");
+/* harmony import */ var _mark_completed__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mark-completed */ "./src/modules/mark-completed.js");
+/* harmony import */ var _edit_task__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit-task */ "./src/modules/edit-task.js");
+
+
+
+
+
+
+const list = document.querySelector("ul");
+
+// Adds a single task to the DOM
+function addSingleTask(
+  taskDescription,
+  taskIndex,
+  taskCompleted
+) {
+  const item = document.createElement("li");
+  item.className = taskIndex;
+  item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${_icons_vert_png__WEBPACK_IMPORTED_MODULE_0__}" alt="threeDots" />`;
+  list.appendChild(item);
+
+  // Add cursor: move to three dots image
+  const threeDots = item.querySelector("img");
+  threeDots.addEventListener("mousedown", () => {
+    item.setAttribute("draggable", true);
+  });
+  threeDots.addEventListener("mouseout", () => {
+    item.setAttribute("draggable", false);
+  });
+  // item.style.cursor = "move";
+  threeDots.style.cursor = "move";
+  threeDots.setAttribute("draggable", false);
+
+  item.addEventListener("dragstart", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragStart);
+  item.addEventListener("dragover", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragOver);
+  item.addEventListener("dragenter", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragEnter);
+  item.addEventListener("dragleave", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragLeave);
+  item.addEventListener("dragend", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragEnd);
+  item.addEventListener("drop", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDrop);
+
+  // Add event listeners when focus and unfocus
+  item.addEventListener("focusin", _highlight__WEBPACK_IMPORTED_MODULE_2__.highlight);
+  item.addEventListener("focusout", _highlight__WEBPACK_IMPORTED_MODULE_2__.unhighlight);
+
+  // Add event listeners to checkbox input
+  const check = item.querySelector(".check");
+  check.addEventListener("change", _mark_completed__WEBPACK_IMPORTED_MODULE_3__["default"]);
+
+  const input = item.querySelector(".task");
+  input.addEventListener("input", _edit_task__WEBPACK_IMPORTED_MODULE_4__["default"]);
+
+  if (taskCompleted) {
+    check.checked = true;
+    input.style.textDecoration = "line-through";
+    input.style.color = "gray";
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/drag-and-drop.js":
+/*!**************************************!*\
+  !*** ./src/modules/drag-and-drop.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "handleDragEnd": () => (/* binding */ handleDragEnd),
+/* harmony export */   "handleDragEnter": () => (/* binding */ handleDragEnter),
+/* harmony export */   "handleDragLeave": () => (/* binding */ handleDragLeave),
+/* harmony export */   "handleDragOver": () => (/* binding */ handleDragOver),
+/* harmony export */   "handleDragStart": () => (/* binding */ handleDragStart),
+/* harmony export */   "handleDrop": () => (/* binding */ handleDrop),
+/* harmony export */   "highlight": () => (/* binding */ highlight),
+/* harmony export */   "unhighlight": () => (/* binding */ unhighlight)
+/* harmony export */ });
+let dragged;
+
+function handleDragStart(e) {
+  this.style.opacity = "0.5";
+
+  dragged = e.target;
+
+  e.dataTransfer.effectAllowed = "move";
+  e.dataTransfer.setData("text/html", this.innerHTML);
+}
+
+function handleDragEnd() {
+  this.style.opacity = "1";
+  const items = document.querySelectorAll("li");
+  items.forEach((item) => {
+    item.style.border = "none";
+  });
+  this.style.border = "none";
+}
+
+function handleDragOver(e) {
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  return false;
+}
+
+function handleDragEnter() {
+  this.style.border = "3px solid blue";
+}
+
+function handleDragLeave() {
+  this.style.border = "none";
+}
+
+function handleDrop(e) {
+  e.stopPropagation();
+  if (dragged !== this) {
+    dragged.innerHTML = this.innerHTML;
+    this.innerHTML = e.dataTransfer.getData("text/html");
+  }
+
+  const items = document.querySelectorAll("li");
+  items.forEach((item) => {
+    // Add event listeners to checkbox input
+    const check = item.querySelector(".check");
+    check.addEventListener("change", markComplete);
+
+    const input = item.querySelector(".task");
+    input.addEventListener("input", editElement);
+
+    const threeDots = item.querySelector("img");
+    threeDots.addEventListener("mousedown", () => {
+      item.setAttribute("draggable", true);
+    });
+    threeDots.addEventListener("mouseout", () => {
+      item.setAttribute("draggable", false);
+    });
+  });
+
+  updateTaskListAndLocalStorage();
+
+  return false;
+}
+
+// Highlights the li element and displays the trashcan icon
+function highlight(event) {
+  const clickedElement = event.target;
+  const parent = clickedElement.parentNode.parentNode;
+  parent.classList.add("highlight");
+  const image = parent.querySelector("img");
+  image.src = TrashCan;
+  image.alt = "trashicon";
+  image.style.cursor = "pointer";
+  image.addEventListener("mousedown", removeItem);
+}
+
+// Unhighlights the li element and changes back the icon
+function unhighlight(event) {
+  const clickedElement = event.target;
+  const parent = clickedElement.parentNode.parentNode;
+  parent.classList.remove("highlight");
+  const image = parent.querySelector("img");
+  image.src = Vert;
+  image.alt = "threeDots";
+  image.style.cursor = "move";
+  image.removeEventListener("mousedown", removeItem);
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/edit-task.js":
+/*!**********************************!*\
+  !*** ./src/modules/edit-task.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ editElement)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+tasks.list = JSON.parse(localStorage.getItem("data"));
+
+function editElement(event) {
+  // Gets the value of the input
+  const newDescription = event.target.value;
+
+  // Gets the class index of the parent
+  const parentClass = event.target.parentNode.parentNode.className;
+  let index = parentClass.replace(/\D/g, "");
+  index = parseInt(index, 10);
+  tasks.editTask(newDescription, index);
+
+  // Stores new edited data
+  localStorage.setItem("data", JSON.stringify(tasks.list));
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/highlight.js":
+/*!**********************************!*\
+  !*** ./src/modules/highlight.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "highlight": () => (/* binding */ highlight),
+/* harmony export */   "unhighlight": () => (/* binding */ unhighlight)
+/* harmony export */ });
+/* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../icons/vert.png */ "./icons/vert.png");
+/* harmony import */ var _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../icons/trashcan.png */ "./icons/trashcan.png");
+/* harmony import */ var _remove_task__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./remove-task */ "./src/modules/remove-task.js");
+
+
+
+
+// Highlights the li element and displays the trashcan icon
+function highlight(event) {
+  const clickedElement = event.target;
+  const parent = clickedElement.parentNode.parentNode;
+  parent.classList.add("highlight");
+  const image = parent.querySelector("img");
+  image.src = _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_1__;
+  image.alt = "trashicon";
+  image.style.cursor = "pointer";
+  image.addEventListener("mousedown", _remove_task__WEBPACK_IMPORTED_MODULE_2__.removeItem);
+}
+
+// Unhighlights the li element and changes back the icon
+function unhighlight(event) {
+  const clickedElement = event.target;
+  const parent = clickedElement.parentNode.parentNode;
+  parent.classList.remove("highlight");
+  const image = parent.querySelector("img");
+  image.src = _icons_vert_png__WEBPACK_IMPORTED_MODULE_0__;
+  image.alt = "threeDots";
+  image.style.cursor = "move";
+  image.removeEventListener("mousedown", _remove_task__WEBPACK_IMPORTED_MODULE_2__.removeItem);
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/mark-completed.js":
+/*!***************************************!*\
+  !*** ./src/modules/mark-completed.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ markComplete)
+/* harmony export */ });
+function markComplete(event) {
+  // Gets the class index of the parent
+  const parentClass = event.target.parentNode.parentNode.className;
+  let index = parentClass.replace(/\D/g, "");
+  index = parseInt(index, 10);
+
+  const parent = event.target.parentNode.parentNode;
+  const input = parent.querySelector(".task");
+  if (event.target.checked) {
+    input.style.textDecoration = "line-through";
+    input.style.color = "gray";
+    tasks.toggleComplete(index);
+    localStorage.setItem("data", JSON.stringify(tasks.list));
+  } else {
+    input.style.textDecoration = "none";
+    input.style.color = "black";
+    tasks.toggleComplete(index);
+    localStorage.setItem("data", JSON.stringify(tasks.list));
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/remove-task.js":
+/*!************************************!*\
+  !*** ./src/modules/remove-task.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "removeItem": () => (/* binding */ removeItem)
+/* harmony export */ });
+function removeItem(event) {
+  let index = event.target.parentNode.className;
+  index = parseInt(index, 10);
+  tasks.removeTask(index);
+
+  // Removes element from DOM
+  event.target.parentNode.remove();
+
+  // Updates DOM indexes
+  updateDomIndexes();
+
+  // Updates local storage without the removed element
+  localStorage.setItem("data", JSON.stringify(tasks.list));
+}
+
+
+/***/ }),
+
 /***/ "./src/modules/tasks.js":
 /*!******************************!*\
   !*** ./src/modules/tasks.js ***!
@@ -723,6 +1045,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../icons/vert.png */ "./icons/vert.png");
 /* harmony import */ var _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../icons/trashcan.png */ "./icons/trashcan.png");
 /* harmony import */ var _modules_tasks_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tasks.js */ "./src/modules/tasks.js");
+/* harmony import */ var _modules_add_task__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/add-task */ "./src/modules/add-task.js");
 
 
 // Create image for more options
@@ -734,220 +1057,38 @@ __webpack_require__.r(__webpack_exports__);
 // Create ToDoTasks object
 
 
+
+
 const tasks = new _modules_tasks_js__WEBPACK_IMPORTED_MODULE_3__["default"]();
 
-if (localStorage.getItem('data') !== null) {
+if (localStorage.getItem("data") !== null) {
   // If there is data stored, set collection to that data
-  tasks.list = JSON.parse(localStorage.getItem('data'));
+  tasks.list = JSON.parse(localStorage.getItem("data"));
 }
-
-const list = document.querySelector('ul');
 
 // Updates the indexes of each element
 function updateDomIndexes() {
-  const parent = document.querySelector('ul');
-  const elements = parent.querySelectorAll('li');
+  const parent = document.querySelector("ul");
+  const elements = parent.querySelectorAll("li");
   for (let i = 0; i < elements.length; i += 1) {
     elements[i].className = i + 1;
   }
 }
 
-function removeItem(event) {
-  let index = event.target.parentNode.className;
-  index = parseInt(index, 10);
-  tasks.removeTask(index);
-
-  // Removes element from DOM
-  event.target.parentNode.remove();
-
-  // Updates DOM indexes
-  updateDomIndexes();
-
-  // Updates local storage without the removed element
-  localStorage.setItem('data', JSON.stringify(tasks.list));
-}
-
-// Highlights the li element and displays the trashcan icon
-function highlight(event) {
-  const clickedElement = event.target;
-  const parent = clickedElement.parentNode.parentNode;
-  parent.classList.add('highlight');
-  const image = parent.querySelector('img');
-  image.src = _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_2__;
-  image.alt = 'trashicon';
-  image.style.cursor = 'pointer';
-  image.addEventListener('mousedown', removeItem);
-}
-
-// Unhighlights the li element and changes back the icon
-function unhighlight(event) {
-  const clickedElement = event.target;
-  const parent = clickedElement.parentNode.parentNode;
-  parent.classList.remove('highlight');
-  const image = parent.querySelector('img');
-  image.src = _icons_vert_png__WEBPACK_IMPORTED_MODULE_1__;
-  image.alt = 'threeDots';
-  image.style.cursor = 'move';
-  image.removeEventListener('mousedown', removeItem);
-}
-
-function editElement(event) {
-  // Gets the value of the input
-  const newDescription = event.target.value;
-
-  // Gets the class index of the parent
-  const parentClass = event.target.parentNode.parentNode.className;
-  let index = parentClass.replace(/\D/g, '');
-  index = parseInt(index, 10);
-  tasks.editTask(newDescription, index);
-
-  // Stores new edited data
-  localStorage.setItem('data', JSON.stringify(tasks.list));
-}
-
-function markComplete(event) {
-  // Gets the class index of the parent
-  const parentClass = event.target.parentNode.parentNode.className;
-  let index = parentClass.replace(/\D/g, '');
-  index = parseInt(index, 10);
-
-  const parent = event.target.parentNode.parentNode;
-  const input = parent.querySelector('.task');
-  if (event.target.checked) {
-    input.style.textDecoration = 'line-through';
-    input.style.color = 'gray';
-    tasks.toggleComplete(index);
-    localStorage.setItem('data', JSON.stringify(tasks.list));
-  } else {
-    input.style.textDecoration = 'none';
-    input.style.color = 'black';
-    tasks.toggleComplete(index);
-    localStorage.setItem('data', JSON.stringify(tasks.list));
-  }
-}
-
 function updateTaskListAndLocalStorage() {
-  const items = document.querySelectorAll('li');
+  const items = document.querySelectorAll("li");
   items.forEach((item) => {
-    const input = item.querySelector('.task');
+    const input = item.querySelector(".task");
     tasks.list[item.className - 1].description = input.value;
     tasks.list[item.className - 1].index = parseInt(item.className, 10);
-    tasks.list[item.className - 1].completed = input.style.textDecoration === 'line-through';
-    const check = item.querySelector('.check');
-    if (input.style.textDecoration === 'line-through') {
+    tasks.list[item.className - 1].completed =
+      input.style.textDecoration === "line-through";
+    const check = item.querySelector(".check");
+    if (input.style.textDecoration === "line-through") {
       check.checked = true;
     }
   });
-  localStorage.setItem('data', JSON.stringify(tasks.list));
-}
-
-let dragged;
-
-function handleDragStart(e) {
-  this.style.opacity = '0.5';
-
-  dragged = e.target;
-
-  e.dataTransfer.effectAllowed = 'move';
-  e.dataTransfer.setData('text/html', this.innerHTML);
-}
-
-function handleDragEnd() {
-  this.style.opacity = '1';
-  const items = document.querySelectorAll('li');
-  items.forEach((item) => {
-    item.style.border = 'none';
-  });
-  this.style.border = 'none';
-}
-
-function handleDragOver(e) {
-  if (e.preventDefault) {
-    e.preventDefault();
-  }
-  return false;
-}
-
-function handleDragEnter() {
-  this.style.border = '3px solid blue';
-}
-
-function handleDragLeave() {
-  this.style.border = 'none';
-}
-
-function handleDrop(e) {
-  e.stopPropagation();
-  if (dragged !== this) {
-    dragged.innerHTML = this.innerHTML;
-    this.innerHTML = e.dataTransfer.getData('text/html');
-  }
-
-  const items = document.querySelectorAll('li');
-  items.forEach((item) => {
-    // Add event listeners to checkbox input
-    const check = item.querySelector('.check');
-    check.addEventListener('change', markComplete);
-
-    const input = item.querySelector('.task');
-    input.addEventListener('input', editElement);
-
-    const threeDots = item.querySelector('img');
-    threeDots.addEventListener('mousedown', () => {
-      item.setAttribute('draggable', true);
-    });
-    threeDots.addEventListener('mouseout', () => {
-      item.setAttribute('draggable', false);
-    });
-  });
-
-  updateTaskListAndLocalStorage();
-
-  return false;
-}
-
-// Adds a single task to the DOM
-function addSingleTask(taskDescription, taskIndex, taskCompleted) {
-  const item = document.createElement('li');
-  item.className = taskIndex;
-  item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${_icons_vert_png__WEBPACK_IMPORTED_MODULE_1__}" alt="threeDots" />`;
-  list.appendChild(item);
-
-  // Add cursor: move to three dots image
-  const threeDots = item.querySelector('img');
-  threeDots.addEventListener('mousedown', () => {
-    item.setAttribute('draggable', true);
-  });
-  threeDots.addEventListener('mouseout', () => {
-    item.setAttribute('draggable', false);
-  });
-  // item.style.cursor = "move";
-  threeDots.style.cursor = 'move';
-  threeDots.setAttribute('draggable', false);
-
-  item.addEventListener('dragstart', handleDragStart);
-  item.addEventListener('dragover', handleDragOver);
-  item.addEventListener('dragenter', handleDragEnter);
-  item.addEventListener('dragleave', handleDragLeave);
-  item.addEventListener('dragend', handleDragEnd);
-  item.addEventListener('drop', handleDrop);
-
-  // Add event listeners when focus and unfocus
-  item.addEventListener('focusin', highlight);
-  item.addEventListener('focusout', unhighlight);
-
-  // Add event listeners to checkbox input
-  const check = item.querySelector('.check');
-  check.addEventListener('change', markComplete);
-
-  const input = item.querySelector('.task');
-  input.addEventListener('input', editElement);
-
-  if (taskCompleted) {
-    check.checked = true;
-    input.style.textDecoration = 'line-through';
-    input.style.color = 'gray';
-  }
+  localStorage.setItem("data", JSON.stringify(tasks.list));
 }
 
 function displayTasks(arr) {
@@ -956,7 +1097,7 @@ function displayTasks(arr) {
 
   // Iterates the array and displays them
   for (let i = 0; i < arr.length; i += 1) {
-    addSingleTask(arr[i].description, i + 1, arr[i].completed);
+    (0,_modules_add_task__WEBPACK_IMPORTED_MODULE_4__["default"])(arr[i].description, i + 1, arr[i].completed);
   }
 }
 
@@ -964,30 +1105,30 @@ function displayTasks(arr) {
 displayTasks(tasks.list);
 
 // Get the main-input element
-const mainInput = document.querySelector('.main-input');
+const mainInput = document.querySelector(".main-input");
 
 // Adds the tasks to the array and the DOM
 function addAndDisplay(event) {
-  if (event.key === 'Enter') {
+  if (event.key === "Enter") {
     tasks.addTask(mainInput.value);
-    addSingleTask(
+    (0,_modules_add_task__WEBPACK_IMPORTED_MODULE_4__["default"])(
       tasks.list[tasks.list.length - 1].description,
-      tasks.list[tasks.list.length - 1].index,
+      tasks.list[tasks.list.length - 1].index
     );
 
-    mainInput.value = '';
-    localStorage.setItem('data', JSON.stringify(tasks.list));
+    mainInput.value = "";
+    localStorage.setItem("data", JSON.stringify(tasks.list));
   }
 }
 
-mainInput.addEventListener('keydown', addAndDisplay);
+mainInput.addEventListener("keydown", addAndDisplay);
 
 function removeCompletedElements() {
-  const parent = document.querySelector('ul');
-  const element = parent.querySelectorAll('li');
+  const parent = document.querySelector("ul");
+  const element = parent.querySelectorAll("li");
   for (let i = 0; i < element.length; i += 1) {
-    const task = element[i].querySelector('.task');
-    if (task.style.textDecoration === 'line-through') {
+    const task = element[i].querySelector(".task");
+    if (task.style.textDecoration === "line-through") {
       element[i].remove();
     }
   }
@@ -995,13 +1136,13 @@ function removeCompletedElements() {
 
 function clearAllCompleted() {
   tasks.clearCompleted();
-  localStorage.setItem('data', JSON.stringify(tasks.list));
+  localStorage.setItem("data", JSON.stringify(tasks.list));
   removeCompletedElements();
   updateDomIndexes();
 }
 
-const clear = document.querySelector('a');
-clear.addEventListener('click', clearAllCompleted);
+const clear = document.querySelector("a");
+clear.addEventListener("click", clearAllCompleted);
 
 })();
 
