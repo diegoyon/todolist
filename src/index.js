@@ -1,19 +1,19 @@
-import "./style.css";
+import './style.css';
 
 // Create ToDoTasks object
-import ToDoTasks from "./modules/tasks.js";
+import ToDoTasks from './modules/tasks.js';
 
-import addSingleTask from "./modules/add-task";
+import addSingleTask from './modules/add-task.js';
 
-import { clearAllCompleted } from "./modules/clear-all";
+import clearAllCompleted from './modules/clear-all.js';
 
-import { addAndDisplay } from "./modules/add-and-display";
+import addAndDisplay from './modules/add-and-display.js';
 
 const tasks = new ToDoTasks();
 
-if (localStorage.getItem("data") !== null) {
+if (localStorage.getItem('data') !== null) {
   // If there is data stored, set collection to that data
-  tasks.list = JSON.parse(localStorage.getItem("data"));
+  tasks.list = JSON.parse(localStorage.getItem('data'));
 }
 
 function displayTasks(arr) {
@@ -30,9 +30,9 @@ function displayTasks(arr) {
 displayTasks(tasks.list);
 
 // Get the main-input element
-const mainInput = document.querySelector(".main-input");
+const mainInput = document.querySelector('.main-input');
 
-mainInput.addEventListener("keydown", addAndDisplay);
+mainInput.addEventListener('keydown', addAndDisplay);
 
-const clear = document.querySelector("a");
-clear.addEventListener("click", clearAllCompleted);
+const clear = document.querySelector('a');
+clear.addEventListener('click', clearAllCompleted);

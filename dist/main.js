@@ -531,6 +531,46 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/add-and-display.js":
+/*!****************************************!*\
+  !*** ./src/modules/add-and-display.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addAndDisplay)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+/* harmony import */ var _add_task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add-task.js */ "./src/modules/add-task.js");
+
+
+
+// Adds the tasks to the array and the DOM
+function addAndDisplay(event) {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  if (localStorage.getItem('data') !== null) {
+    // If there is data stored, set collection to that data
+    tasks.list = JSON.parse(localStorage.getItem('data'));
+  } else {
+    tasks.list = [];
+  }
+  const mainInput = document.querySelector('.main-input');
+  if (event.key === 'Enter') {
+    tasks.addTask(mainInput.value);
+    (0,_add_task_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+      tasks.list[tasks.list.length - 1].description,
+      tasks.list[tasks.list.length - 1].index,
+    );
+
+    mainInput.value = '';
+    localStorage.setItem('data', JSON.stringify(tasks.list));
+  }
+}
+
+
+/***/ }),
+
 /***/ "./src/modules/add-task.js":
 /*!*********************************!*\
   !*** ./src/modules/add-task.js ***!
@@ -543,63 +583,92 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../icons/vert.png */ "./icons/vert.png");
 /* harmony import */ var _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./drag-and-drop.js */ "./src/modules/drag-and-drop.js");
-/* harmony import */ var _highlight__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./highlight */ "./src/modules/highlight.js");
-/* harmony import */ var _mark_completed__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mark-completed */ "./src/modules/mark-completed.js");
-/* harmony import */ var _edit_task__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit-task */ "./src/modules/edit-task.js");
+/* harmony import */ var _highlight_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./highlight.js */ "./src/modules/highlight.js");
+/* harmony import */ var _mark_completed_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mark-completed.js */ "./src/modules/mark-completed.js");
+/* harmony import */ var _edit_task_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit-task.js */ "./src/modules/edit-task.js");
 
 
 
 
 
 
-const list = document.querySelector("ul");
+const list = document.querySelector('ul');
 
 // Adds a single task to the DOM
 function addSingleTask(
   taskDescription,
   taskIndex,
-  taskCompleted
+  taskCompleted,
 ) {
-  const item = document.createElement("li");
+  const item = document.createElement('li');
   item.className = taskIndex;
   item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${_icons_vert_png__WEBPACK_IMPORTED_MODULE_0__}" alt="threeDots" />`;
   list.appendChild(item);
 
   // Add cursor: move to three dots image
-  const threeDots = item.querySelector("img");
-  threeDots.addEventListener("mousedown", () => {
-    item.setAttribute("draggable", true);
+  const threeDots = item.querySelector('img');
+  threeDots.addEventListener('mousedown', () => {
+    item.setAttribute('draggable', true);
   });
-  threeDots.addEventListener("mouseout", () => {
-    item.setAttribute("draggable", false);
+  threeDots.addEventListener('mouseout', () => {
+    item.setAttribute('draggable', false);
   });
   // item.style.cursor = "move";
-  threeDots.style.cursor = "move";
-  threeDots.setAttribute("draggable", false);
+  threeDots.style.cursor = 'move';
+  threeDots.setAttribute('draggable', false);
 
-  item.addEventListener("dragstart", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragStart);
-  item.addEventListener("dragover", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragOver);
-  item.addEventListener("dragenter", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragEnter);
-  item.addEventListener("dragleave", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragLeave);
-  item.addEventListener("dragend", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragEnd);
-  item.addEventListener("drop", _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDrop);
+  item.addEventListener('dragstart', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragStart);
+  item.addEventListener('dragover', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragOver);
+  item.addEventListener('dragenter', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragEnter);
+  item.addEventListener('dragleave', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragLeave);
+  item.addEventListener('dragend', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragEnd);
+  item.addEventListener('drop', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDrop);
 
   // Add event listeners when focus and unfocus
-  item.addEventListener("focusin", _highlight__WEBPACK_IMPORTED_MODULE_2__.highlight);
-  item.addEventListener("focusout", _highlight__WEBPACK_IMPORTED_MODULE_2__.unhighlight);
+  item.addEventListener('focusin', _highlight_js__WEBPACK_IMPORTED_MODULE_2__.highlight);
+  item.addEventListener('focusout', _highlight_js__WEBPACK_IMPORTED_MODULE_2__.unhighlight);
 
   // Add event listeners to checkbox input
-  const check = item.querySelector(".check");
-  check.addEventListener("change", _mark_completed__WEBPACK_IMPORTED_MODULE_3__["default"]);
+  const check = item.querySelector('.check');
+  check.addEventListener('change', _mark_completed_js__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
-  const input = item.querySelector(".task");
-  input.addEventListener("input", _edit_task__WEBPACK_IMPORTED_MODULE_4__["default"]);
+  const input = item.querySelector('.task');
+  input.addEventListener('input', _edit_task_js__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
   if (taskCompleted) {
     check.checked = true;
-    input.style.textDecoration = "line-through";
-    input.style.color = "gray";
+    input.style.textDecoration = 'line-through';
+    input.style.color = 'gray';
   }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/clear-all.js":
+/*!**********************************!*\
+  !*** ./src/modules/clear-all.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ clearAllCompleted)
+/* harmony export */ });
+/* harmony import */ var _update_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./update-dom.js */ "./src/modules/update-dom.js");
+/* harmony import */ var _remove_completed_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./remove-completed.js */ "./src/modules/remove-completed.js");
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+
+
+
+function clearAllCompleted() {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
+  tasks.clearCompleted();
+  localStorage.setItem('data', JSON.stringify(tasks.list));
+  (0,_remove_completed_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  (0,_update_dom_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 }
 
 
@@ -622,24 +691,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "highlight": () => (/* binding */ highlight),
 /* harmony export */   "unhighlight": () => (/* binding */ unhighlight)
 /* harmony export */ });
+/* harmony import */ var _update_task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./update-task.js */ "./src/modules/update-task.js");
+/* harmony import */ var _mark_completed_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mark-completed.js */ "./src/modules/mark-completed.js");
+/* harmony import */ var _edit_task_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit-task.js */ "./src/modules/edit-task.js");
+/* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../icons/vert.png */ "./icons/vert.png");
+/* harmony import */ var _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons/trashcan.png */ "./icons/trashcan.png");
+/* harmony import */ var _remove_task_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./remove-task.js */ "./src/modules/remove-task.js");
+
+
+
+
+
+
+
 let dragged;
 
 function handleDragStart(e) {
-  this.style.opacity = "0.5";
+  this.style.opacity = '0.5';
 
   dragged = e.target;
 
-  e.dataTransfer.effectAllowed = "move";
-  e.dataTransfer.setData("text/html", this.innerHTML);
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
 }
 
 function handleDragEnd() {
-  this.style.opacity = "1";
-  const items = document.querySelectorAll("li");
+  this.style.opacity = '1';
+  const items = document.querySelectorAll('li');
   items.forEach((item) => {
-    item.style.border = "none";
+    item.style.border = 'none';
   });
-  this.style.border = "none";
+  this.style.border = 'none';
 }
 
 function handleDragOver(e) {
@@ -650,39 +732,39 @@ function handleDragOver(e) {
 }
 
 function handleDragEnter() {
-  this.style.border = "3px solid blue";
+  this.style.border = '3px solid blue';
 }
 
 function handleDragLeave() {
-  this.style.border = "none";
+  this.style.border = 'none';
 }
 
 function handleDrop(e) {
   e.stopPropagation();
   if (dragged !== this) {
     dragged.innerHTML = this.innerHTML;
-    this.innerHTML = e.dataTransfer.getData("text/html");
+    this.innerHTML = e.dataTransfer.getData('text/html');
   }
 
-  const items = document.querySelectorAll("li");
+  const items = document.querySelectorAll('li');
   items.forEach((item) => {
     // Add event listeners to checkbox input
-    const check = item.querySelector(".check");
-    check.addEventListener("change", markComplete);
+    const check = item.querySelector('.check');
+    check.addEventListener('change', _mark_completed_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-    const input = item.querySelector(".task");
-    input.addEventListener("input", editElement);
+    const input = item.querySelector('.task');
+    input.addEventListener('input', _edit_task_js__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
-    const threeDots = item.querySelector("img");
-    threeDots.addEventListener("mousedown", () => {
-      item.setAttribute("draggable", true);
+    const threeDots = item.querySelector('img');
+    threeDots.addEventListener('mousedown', () => {
+      item.setAttribute('draggable', true);
     });
-    threeDots.addEventListener("mouseout", () => {
-      item.setAttribute("draggable", false);
+    threeDots.addEventListener('mouseout', () => {
+      item.setAttribute('draggable', false);
     });
   });
 
-  updateTaskListAndLocalStorage();
+  (0,_update_task_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
   return false;
 }
@@ -691,24 +773,24 @@ function handleDrop(e) {
 function highlight(event) {
   const clickedElement = event.target;
   const parent = clickedElement.parentNode.parentNode;
-  parent.classList.add("highlight");
-  const image = parent.querySelector("img");
-  image.src = TrashCan;
-  image.alt = "trashicon";
-  image.style.cursor = "pointer";
-  image.addEventListener("mousedown", removeItem);
+  parent.classList.add('highlight');
+  const image = parent.querySelector('img');
+  image.src = _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_4__;
+  image.alt = 'trashicon';
+  image.style.cursor = 'pointer';
+  image.addEventListener('mousedown', _remove_task_js__WEBPACK_IMPORTED_MODULE_5__["default"]);
 }
 
 // Unhighlights the li element and changes back the icon
 function unhighlight(event) {
   const clickedElement = event.target;
   const parent = clickedElement.parentNode.parentNode;
-  parent.classList.remove("highlight");
-  const image = parent.querySelector("img");
-  image.src = Vert;
-  image.alt = "threeDots";
-  image.style.cursor = "move";
-  image.removeEventListener("mousedown", removeItem);
+  parent.classList.remove('highlight');
+  const image = parent.querySelector('img');
+  image.src = _icons_vert_png__WEBPACK_IMPORTED_MODULE_3__;
+  image.alt = 'threeDots';
+  image.style.cursor = 'move';
+  image.removeEventListener('mousedown', _remove_task_js__WEBPACK_IMPORTED_MODULE_5__["default"]);
 }
 
 
@@ -726,21 +808,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
 
-const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
-tasks.list = JSON.parse(localStorage.getItem("data"));
 
 function editElement(event) {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
   // Gets the value of the input
   const newDescription = event.target.value;
 
   // Gets the class index of the parent
   const parentClass = event.target.parentNode.parentNode.className;
-  let index = parentClass.replace(/\D/g, "");
+  let index = parentClass.replace(/\D/g, '');
   index = parseInt(index, 10);
   tasks.editTask(newDescription, index);
 
   // Stores new edited data
-  localStorage.setItem("data", JSON.stringify(tasks.list));
+  localStorage.setItem('data', JSON.stringify(tasks.list));
 }
 
 
@@ -759,7 +841,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../icons/vert.png */ "./icons/vert.png");
 /* harmony import */ var _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../icons/trashcan.png */ "./icons/trashcan.png");
-/* harmony import */ var _remove_task__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./remove-task */ "./src/modules/remove-task.js");
+/* harmony import */ var _remove_task_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./remove-task.js */ "./src/modules/remove-task.js");
 
 
 
@@ -768,24 +850,24 @@ __webpack_require__.r(__webpack_exports__);
 function highlight(event) {
   const clickedElement = event.target;
   const parent = clickedElement.parentNode.parentNode;
-  parent.classList.add("highlight");
-  const image = parent.querySelector("img");
+  parent.classList.add('highlight');
+  const image = parent.querySelector('img');
   image.src = _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_1__;
-  image.alt = "trashicon";
-  image.style.cursor = "pointer";
-  image.addEventListener("mousedown", _remove_task__WEBPACK_IMPORTED_MODULE_2__.removeItem);
+  image.alt = 'trashicon';
+  image.style.cursor = 'pointer';
+  image.addEventListener('mousedown', _remove_task_js__WEBPACK_IMPORTED_MODULE_2__["default"]);
 }
 
 // Unhighlights the li element and changes back the icon
 function unhighlight(event) {
   const clickedElement = event.target;
   const parent = clickedElement.parentNode.parentNode;
-  parent.classList.remove("highlight");
-  const image = parent.querySelector("img");
+  parent.classList.remove('highlight');
+  const image = parent.querySelector('img');
   image.src = _icons_vert_png__WEBPACK_IMPORTED_MODULE_0__;
-  image.alt = "threeDots";
-  image.style.cursor = "move";
-  image.removeEventListener("mousedown", _remove_task__WEBPACK_IMPORTED_MODULE_2__.removeItem);
+  image.alt = 'threeDots';
+  image.style.cursor = 'move';
+  image.removeEventListener('mousedown', _remove_task_js__WEBPACK_IMPORTED_MODULE_2__["default"]);
 }
 
 
@@ -801,24 +883,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ markComplete)
 /* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+
 function markComplete(event) {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
   // Gets the class index of the parent
   const parentClass = event.target.parentNode.parentNode.className;
-  let index = parentClass.replace(/\D/g, "");
+  let index = parentClass.replace(/\D/g, '');
   index = parseInt(index, 10);
 
   const parent = event.target.parentNode.parentNode;
-  const input = parent.querySelector(".task");
+  const input = parent.querySelector('.task');
   if (event.target.checked) {
-    input.style.textDecoration = "line-through";
-    input.style.color = "gray";
+    input.style.textDecoration = 'line-through';
+    input.style.color = 'gray';
     tasks.toggleComplete(index);
-    localStorage.setItem("data", JSON.stringify(tasks.list));
+    localStorage.setItem('data', JSON.stringify(tasks.list));
   } else {
-    input.style.textDecoration = "none";
-    input.style.color = "black";
+    input.style.textDecoration = 'none';
+    input.style.color = 'black';
     tasks.toggleComplete(index);
-    localStorage.setItem("data", JSON.stringify(tasks.list));
+    localStorage.setItem('data', JSON.stringify(tasks.list));
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/remove-completed.js":
+/*!*****************************************!*\
+  !*** ./src/modules/remove-completed.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ removeCompletedElements)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+
+function removeCompletedElements() {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
+  const parent = document.querySelector('ul');
+  const element = parent.querySelectorAll('li');
+  for (let i = 0; i < element.length; i += 1) {
+    const task = element[i].querySelector('.task');
+    if (task.style.textDecoration === 'line-through') {
+      element[i].remove();
+    }
   }
 }
 
@@ -833,9 +949,16 @@ function markComplete(event) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "removeItem": () => (/* binding */ removeItem)
+/* harmony export */   "default": () => (/* binding */ removeItem)
 /* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+/* harmony import */ var _update_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update-dom.js */ "./src/modules/update-dom.js");
+
+
+
 function removeItem(event) {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
   let index = event.target.parentNode.className;
   index = parseInt(index, 10);
   tasks.removeTask(index);
@@ -844,10 +967,10 @@ function removeItem(event) {
   event.target.parentNode.remove();
 
   // Updates DOM indexes
-  updateDomIndexes();
+  (0,_update_dom_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
   // Updates local storage without the removed element
-  localStorage.setItem("data", JSON.stringify(tasks.list));
+  localStorage.setItem('data', JSON.stringify(tasks.list));
 }
 
 
@@ -904,6 +1027,61 @@ class ToDoTasks {
       this.list[i].index = i + 1;
     }
   }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/update-dom.js":
+/*!***********************************!*\
+  !*** ./src/modules/update-dom.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ updateDomIndexes)
+/* harmony export */ });
+// Updates the indexes of each element
+function updateDomIndexes() {
+  const parent = document.querySelector('ul');
+  const elements = parent.querySelectorAll('li');
+  for (let i = 0; i < elements.length; i += 1) {
+    elements[i].className = i + 1;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/update-task.js":
+/*!************************************!*\
+  !*** ./src/modules/update-task.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ updateTaskListAndLocalStorage)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+
+function updateTaskListAndLocalStorage() {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    const input = item.querySelector('.task');
+    tasks.list[item.className - 1].description = input.value;
+    tasks.list[item.className - 1].index = parseInt(item.className, 10);
+    tasks.list[item.className - 1].completed = input.style.textDecoration === 'line-through';
+    const check = item.querySelector('.check');
+    if (input.style.textDecoration === 'line-through') {
+      check.checked = true;
+    }
+  });
+  localStorage.setItem('data', JSON.stringify(tasks.list));
 }
 
 
@@ -1042,16 +1220,10 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
-/* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../icons/vert.png */ "./icons/vert.png");
-/* harmony import */ var _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../icons/trashcan.png */ "./icons/trashcan.png");
-/* harmony import */ var _modules_tasks_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tasks.js */ "./src/modules/tasks.js");
-/* harmony import */ var _modules_add_task__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/add-task */ "./src/modules/add-task.js");
-
-
-// Create image for more options
-
-
-// Create trashcan image
+/* harmony import */ var _modules_tasks_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tasks.js */ "./src/modules/tasks.js");
+/* harmony import */ var _modules_add_task_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/add-task.js */ "./src/modules/add-task.js");
+/* harmony import */ var _modules_clear_all_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/clear-all.js */ "./src/modules/clear-all.js");
+/* harmony import */ var _modules_add_and_display_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/add-and-display.js */ "./src/modules/add-and-display.js");
 
 
 // Create ToDoTasks object
@@ -1059,36 +1231,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const tasks = new _modules_tasks_js__WEBPACK_IMPORTED_MODULE_3__["default"]();
 
-if (localStorage.getItem("data") !== null) {
+
+
+
+const tasks = new _modules_tasks_js__WEBPACK_IMPORTED_MODULE_1__["default"]();
+
+if (localStorage.getItem('data') !== null) {
   // If there is data stored, set collection to that data
-  tasks.list = JSON.parse(localStorage.getItem("data"));
-}
-
-// Updates the indexes of each element
-function updateDomIndexes() {
-  const parent = document.querySelector("ul");
-  const elements = parent.querySelectorAll("li");
-  for (let i = 0; i < elements.length; i += 1) {
-    elements[i].className = i + 1;
-  }
-}
-
-function updateTaskListAndLocalStorage() {
-  const items = document.querySelectorAll("li");
-  items.forEach((item) => {
-    const input = item.querySelector(".task");
-    tasks.list[item.className - 1].description = input.value;
-    tasks.list[item.className - 1].index = parseInt(item.className, 10);
-    tasks.list[item.className - 1].completed =
-      input.style.textDecoration === "line-through";
-    const check = item.querySelector(".check");
-    if (input.style.textDecoration === "line-through") {
-      check.checked = true;
-    }
-  });
-  localStorage.setItem("data", JSON.stringify(tasks.list));
+  tasks.list = JSON.parse(localStorage.getItem('data'));
 }
 
 function displayTasks(arr) {
@@ -1097,7 +1248,7 @@ function displayTasks(arr) {
 
   // Iterates the array and displays them
   for (let i = 0; i < arr.length; i += 1) {
-    (0,_modules_add_task__WEBPACK_IMPORTED_MODULE_4__["default"])(arr[i].description, i + 1, arr[i].completed);
+    (0,_modules_add_task_js__WEBPACK_IMPORTED_MODULE_2__["default"])(arr[i].description, i + 1, arr[i].completed);
   }
 }
 
@@ -1105,44 +1256,12 @@ function displayTasks(arr) {
 displayTasks(tasks.list);
 
 // Get the main-input element
-const mainInput = document.querySelector(".main-input");
+const mainInput = document.querySelector('.main-input');
 
-// Adds the tasks to the array and the DOM
-function addAndDisplay(event) {
-  if (event.key === "Enter") {
-    tasks.addTask(mainInput.value);
-    (0,_modules_add_task__WEBPACK_IMPORTED_MODULE_4__["default"])(
-      tasks.list[tasks.list.length - 1].description,
-      tasks.list[tasks.list.length - 1].index
-    );
+mainInput.addEventListener('keydown', _modules_add_and_display_js__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
-    mainInput.value = "";
-    localStorage.setItem("data", JSON.stringify(tasks.list));
-  }
-}
-
-mainInput.addEventListener("keydown", addAndDisplay);
-
-function removeCompletedElements() {
-  const parent = document.querySelector("ul");
-  const element = parent.querySelectorAll("li");
-  for (let i = 0; i < element.length; i += 1) {
-    const task = element[i].querySelector(".task");
-    if (task.style.textDecoration === "line-through") {
-      element[i].remove();
-    }
-  }
-}
-
-function clearAllCompleted() {
-  tasks.clearCompleted();
-  localStorage.setItem("data", JSON.stringify(tasks.list));
-  removeCompletedElements();
-  updateDomIndexes();
-}
-
-const clear = document.querySelector("a");
-clear.addEventListener("click", clearAllCompleted);
+const clear = document.querySelector('a');
+clear.addEventListener('click', _modules_clear_all_js__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
 })();
 
