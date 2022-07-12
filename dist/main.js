@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  text-decoration: none;\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n}\r\n\r\nbody {\r\n  background-color: #f6f6f6;\r\n}\r\n\r\n.content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border: none;\r\n  width: 450px;\r\n  margin: 3rem auto;\r\n  background-color: #c0c0c0;\r\n  box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;\r\n}\r\n\r\nul li img {\r\n  height: 16px;\r\n}\r\n\r\n.title-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.title-container img {\r\n  height: 16px;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding-right: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.input-container img {\r\n  height: 12px;\r\n}\r\n\r\ninput {\r\n  border: none;\r\n  padding: 0.8rem;\r\n  width: 100%;\r\n}\r\n\r\ninput::placeholder {\r\n  font-style: italic;\r\n}\r\n\r\ninput:focus {\r\n  outline: none;\r\n}\r\n\r\nul {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: start;\r\n  gap: 1px;\r\n}\r\n\r\nul li {\r\n  padding: 0 0.8rem;\r\n  background-color: white;\r\n\r\n  /* border-bottom: 1px solid #c0c0c0; */\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nul li div {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.task {\r\n  padding: 0.8rem;\r\n  background: transparent;\r\n}\r\n\r\n.check {\r\n  height: 14px;\r\n  width: 14px;\r\n  padding: 0.8rem;\r\n}\r\n\r\na {\r\n  color: black;\r\n  padding: 0.8rem;\r\n  width: fit-content;\r\n  align-self: center;\r\n}\r\n\r\n.highlight {\r\n  background-color: #fffeca;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;EACE,sBAAsB;EACtB,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,qBAAqB;EACrB,iCAAiC;EACjC,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,YAAY;EACZ,YAAY;EACZ,iBAAiB;EACjB,yBAAyB;EACzB,0EAA0E;AAC5E;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,uBAAuB;EACvB,gCAAgC;AAClC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,gCAAgC;AAClC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,eAAe;EACf,WAAW;AACb;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,iBAAiB;EACjB,QAAQ;AACV;;AAEA;EACE,iBAAiB;EACjB,uBAAuB;;EAEvB,sCAAsC;EACtC,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,WAAW;AACb;;AAEA;EACE,eAAe;EACf,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,eAAe;EACf,kBAAkB;EAClB,kBAAkB;AACpB;;AAEA;EACE,yBAAyB;AAC3B","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap\");\r\n\r\n* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  text-decoration: none;\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n}\r\n\r\nbody {\r\n  background-color: #f6f6f6;\r\n}\r\n\r\n.content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border: none;\r\n  width: 450px;\r\n  margin: 3rem auto;\r\n  background-color: #c0c0c0;\r\n  box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;\r\n}\r\n\r\nul li img {\r\n  height: 16px;\r\n}\r\n\r\n.title-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.title-container img {\r\n  height: 16px;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding-right: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.input-container img {\r\n  height: 12px;\r\n}\r\n\r\ninput {\r\n  border: none;\r\n  padding: 0.8rem;\r\n  width: 100%;\r\n}\r\n\r\ninput::placeholder {\r\n  font-style: italic;\r\n}\r\n\r\ninput:focus {\r\n  outline: none;\r\n}\r\n\r\nul {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: start;\r\n  gap: 1px;\r\n}\r\n\r\nul li {\r\n  padding: 0 0.8rem;\r\n  background-color: white;\r\n\r\n  /* border-bottom: 1px solid #c0c0c0; */\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nul li div {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.task {\r\n  padding: 0.8rem;\r\n  background: transparent;\r\n}\r\n\r\n.check {\r\n  height: 14px;\r\n  width: 14px;\r\n  padding: 0.8rem;\r\n}\r\n\r\na {\r\n  color: black;\r\n  padding: 0.8rem;\r\n  width: fit-content;\r\n  align-self: center;\r\n}\r\n\r\n.highlight {\r\n  background-color: #fffeca;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  text-decoration: none;\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n}\r\n\r\nbody {\r\n  /* background-color: #f6f6f6; */\r\n  background: rgb(2, 0, 36);\r\n  background: radial-gradient(\r\n    circle,\r\n    rgba(2, 0, 36, 1) 0%,\r\n    rgba(47, 47, 158, 1) 69%,\r\n    rgba(0, 212, 255, 1) 100%\r\n  );\r\n}\r\n\r\n.content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border: none;\r\n  width: 450px;\r\n  margin: 3rem auto;\r\n  background-color: #c0c0c0;\r\n  box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;\r\n}\r\n\r\nul li img {\r\n  height: 16px;\r\n}\r\n\r\n.title-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.title-container img {\r\n  height: 16px;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding-right: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.input-container img {\r\n  height: 12px;\r\n}\r\n\r\ninput {\r\n  border: none;\r\n  padding: 0.8rem;\r\n  width: 100%;\r\n}\r\n\r\ninput::placeholder {\r\n  font-style: italic;\r\n}\r\n\r\ninput:focus {\r\n  outline: none;\r\n}\r\n\r\nul {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: start;\r\n  gap: 1px;\r\n}\r\n\r\nul li {\r\n  padding: 0 0.8rem;\r\n  background-color: white;\r\n\r\n  /* border-bottom: 1px solid #c0c0c0; */\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nul li div {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.task {\r\n  padding: 0.8rem;\r\n  background: transparent;\r\n}\r\n\r\n.check {\r\n  height: 14px;\r\n  width: 14px;\r\n  padding: 0.8rem;\r\n}\r\n\r\na {\r\n  color: black;\r\n  padding: 0.8rem;\r\n  width: fit-content;\r\n  align-self: center;\r\n}\r\n\r\n.highlight {\r\n  background-color: #fffeca;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;EACE,sBAAsB;EACtB,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,qBAAqB;EACrB,iCAAiC;EACjC,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,+BAA+B;EAC/B,yBAAyB;EACzB;;;;;GAKC;AACH;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,YAAY;EACZ,YAAY;EACZ,iBAAiB;EACjB,yBAAyB;EACzB,0EAA0E;AAC5E;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,uBAAuB;EACvB,gCAAgC;AAClC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,qBAAqB;EACrB,uBAAuB;EACvB,gCAAgC;AAClC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,eAAe;EACf,WAAW;AACb;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,iBAAiB;EACjB,QAAQ;AACV;;AAEA;EACE,iBAAiB;EACjB,uBAAuB;;EAEvB,sCAAsC;EACtC,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,WAAW;AACb;;AAEA;EACE,eAAe;EACf,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,eAAe;EACf,kBAAkB;EAClB,kBAAkB;AACpB;;AAEA;EACE,yBAAyB;AAC3B","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap\");\r\n\r\n* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  text-decoration: none;\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n}\r\n\r\nbody {\r\n  /* background-color: #f6f6f6; */\r\n  background: rgb(2, 0, 36);\r\n  background: radial-gradient(\r\n    circle,\r\n    rgba(2, 0, 36, 1) 0%,\r\n    rgba(47, 47, 158, 1) 69%,\r\n    rgba(0, 212, 255, 1) 100%\r\n  );\r\n}\r\n\r\n.content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border: none;\r\n  width: 450px;\r\n  margin: 3rem auto;\r\n  background-color: #c0c0c0;\r\n  box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;\r\n}\r\n\r\nul li img {\r\n  height: 16px;\r\n}\r\n\r\n.title-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.title-container img {\r\n  height: 16px;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding-right: 0.8rem;\r\n  background-color: white;\r\n  border-bottom: 1px solid #c0c0c0;\r\n}\r\n\r\n.input-container img {\r\n  height: 12px;\r\n}\r\n\r\ninput {\r\n  border: none;\r\n  padding: 0.8rem;\r\n  width: 100%;\r\n}\r\n\r\ninput::placeholder {\r\n  font-style: italic;\r\n}\r\n\r\ninput:focus {\r\n  outline: none;\r\n}\r\n\r\nul {\r\n  display: flex;\r\n  flex-direction: column;\r\n  text-align: start;\r\n  gap: 1px;\r\n}\r\n\r\nul li {\r\n  padding: 0 0.8rem;\r\n  background-color: white;\r\n\r\n  /* border-bottom: 1px solid #c0c0c0; */\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n\r\nul li div {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.task {\r\n  padding: 0.8rem;\r\n  background: transparent;\r\n}\r\n\r\n.check {\r\n  height: 14px;\r\n  width: 14px;\r\n  padding: 0.8rem;\r\n}\r\n\r\na {\r\n  color: black;\r\n  padding: 0.8rem;\r\n  width: fit-content;\r\n  align-self: center;\r\n}\r\n\r\n.highlight {\r\n  background-color: #fffeca;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -531,6 +531,451 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/add-and-display.js":
+/*!****************************************!*\
+  !*** ./src/modules/add-and-display.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addAndDisplay)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+/* harmony import */ var _add_task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add-task.js */ "./src/modules/add-task.js");
+
+
+
+// Adds the tasks to the array and the DOM
+function addAndDisplay(event) {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  if (localStorage.getItem('data') !== null) {
+    // If there is data stored, set collection to that data
+    tasks.list = JSON.parse(localStorage.getItem('data'));
+  } else {
+    tasks.list = [];
+  }
+  const mainInput = document.querySelector('.main-input');
+  if (event.key === 'Enter') {
+    tasks.addTask(mainInput.value);
+    (0,_add_task_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+      tasks.list[tasks.list.length - 1].description,
+      tasks.list[tasks.list.length - 1].index,
+    );
+
+    mainInput.value = '';
+    localStorage.setItem('data', JSON.stringify(tasks.list));
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/add-task.js":
+/*!*********************************!*\
+  !*** ./src/modules/add-task.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addSingleTask)
+/* harmony export */ });
+/* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../icons/vert.png */ "./icons/vert.png");
+/* harmony import */ var _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./drag-and-drop.js */ "./src/modules/drag-and-drop.js");
+/* harmony import */ var _highlight_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./highlight.js */ "./src/modules/highlight.js");
+/* harmony import */ var _mark_completed_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mark-completed.js */ "./src/modules/mark-completed.js");
+/* harmony import */ var _edit_task_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit-task.js */ "./src/modules/edit-task.js");
+
+
+
+
+
+
+const list = document.querySelector('ul');
+
+// Adds a single task to the DOM
+function addSingleTask(
+  taskDescription,
+  taskIndex,
+  taskCompleted,
+) {
+  const item = document.createElement('li');
+  item.className = taskIndex;
+  item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${_icons_vert_png__WEBPACK_IMPORTED_MODULE_0__}" alt="threeDots" />`;
+  list.appendChild(item);
+
+  // Add cursor: move to three dots image
+  const threeDots = item.querySelector('img');
+  threeDots.addEventListener('mousedown', () => {
+    item.setAttribute('draggable', true);
+  });
+  threeDots.addEventListener('mouseout', () => {
+    item.setAttribute('draggable', false);
+  });
+  // item.style.cursor = "move";
+  threeDots.style.cursor = 'move';
+  threeDots.setAttribute('draggable', false);
+
+  item.addEventListener('dragstart', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragStart);
+  item.addEventListener('dragover', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragOver);
+  item.addEventListener('dragenter', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragEnter);
+  item.addEventListener('dragleave', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragLeave);
+  item.addEventListener('dragend', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDragEnd);
+  item.addEventListener('drop', _drag_and_drop_js__WEBPACK_IMPORTED_MODULE_1__.handleDrop);
+
+  // Add event listeners when focus and unfocus
+  item.addEventListener('focusin', _highlight_js__WEBPACK_IMPORTED_MODULE_2__.highlight);
+  item.addEventListener('focusout', _highlight_js__WEBPACK_IMPORTED_MODULE_2__.unhighlight);
+
+  // Add event listeners to checkbox input
+  const check = item.querySelector('.check');
+  check.addEventListener('change', _mark_completed_js__WEBPACK_IMPORTED_MODULE_3__["default"]);
+
+  const input = item.querySelector('.task');
+  input.addEventListener('input', _edit_task_js__WEBPACK_IMPORTED_MODULE_4__["default"]);
+
+  if (taskCompleted) {
+    check.checked = true;
+    input.style.textDecoration = 'line-through';
+    input.style.color = 'gray';
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/clear-all.js":
+/*!**********************************!*\
+  !*** ./src/modules/clear-all.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ clearAllCompleted)
+/* harmony export */ });
+/* harmony import */ var _update_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./update-dom.js */ "./src/modules/update-dom.js");
+/* harmony import */ var _remove_completed_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./remove-completed.js */ "./src/modules/remove-completed.js");
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+
+
+
+function clearAllCompleted() {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
+  tasks.clearCompleted();
+  localStorage.setItem('data', JSON.stringify(tasks.list));
+  (0,_remove_completed_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  (0,_update_dom_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/drag-and-drop.js":
+/*!**************************************!*\
+  !*** ./src/modules/drag-and-drop.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "handleDragEnd": () => (/* binding */ handleDragEnd),
+/* harmony export */   "handleDragEnter": () => (/* binding */ handleDragEnter),
+/* harmony export */   "handleDragLeave": () => (/* binding */ handleDragLeave),
+/* harmony export */   "handleDragOver": () => (/* binding */ handleDragOver),
+/* harmony export */   "handleDragStart": () => (/* binding */ handleDragStart),
+/* harmony export */   "handleDrop": () => (/* binding */ handleDrop),
+/* harmony export */   "highlight": () => (/* binding */ highlight),
+/* harmony export */   "unhighlight": () => (/* binding */ unhighlight)
+/* harmony export */ });
+/* harmony import */ var _update_task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./update-task.js */ "./src/modules/update-task.js");
+/* harmony import */ var _mark_completed_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mark-completed.js */ "./src/modules/mark-completed.js");
+/* harmony import */ var _edit_task_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit-task.js */ "./src/modules/edit-task.js");
+/* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../icons/vert.png */ "./icons/vert.png");
+/* harmony import */ var _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons/trashcan.png */ "./icons/trashcan.png");
+/* harmony import */ var _remove_task_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./remove-task.js */ "./src/modules/remove-task.js");
+
+
+
+
+
+
+
+let dragged;
+
+function handleDragStart(e) {
+  this.style.opacity = '0.5';
+
+  dragged = e.target;
+
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+}
+
+function handleDragEnd() {
+  this.style.opacity = '1';
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    item.style.border = 'none';
+  });
+  this.style.border = 'none';
+}
+
+function handleDragOver(e) {
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  return false;
+}
+
+function handleDragEnter() {
+  this.style.border = '3px solid blue';
+}
+
+function handleDragLeave() {
+  this.style.border = 'none';
+}
+
+function handleDrop(e) {
+  e.stopPropagation();
+  if (dragged !== this) {
+    dragged.innerHTML = this.innerHTML;
+    this.innerHTML = e.dataTransfer.getData('text/html');
+  }
+
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    // Add event listeners to checkbox input
+    const check = item.querySelector('.check');
+    check.addEventListener('change', _mark_completed_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+    const input = item.querySelector('.task');
+    input.addEventListener('input', _edit_task_js__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+    const threeDots = item.querySelector('img');
+    threeDots.addEventListener('mousedown', () => {
+      item.setAttribute('draggable', true);
+    });
+    threeDots.addEventListener('mouseout', () => {
+      item.setAttribute('draggable', false);
+    });
+  });
+
+  (0,_update_task_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+
+  return false;
+}
+
+// Highlights the li element and displays the trashcan icon
+function highlight(event) {
+  const clickedElement = event.target;
+  const parent = clickedElement.parentNode.parentNode;
+  parent.classList.add('highlight');
+  const image = parent.querySelector('img');
+  image.src = _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_4__;
+  image.alt = 'trashicon';
+  image.style.cursor = 'pointer';
+  image.addEventListener('mousedown', _remove_task_js__WEBPACK_IMPORTED_MODULE_5__["default"]);
+}
+
+// Unhighlights the li element and changes back the icon
+function unhighlight(event) {
+  const clickedElement = event.target;
+  const parent = clickedElement.parentNode.parentNode;
+  parent.classList.remove('highlight');
+  const image = parent.querySelector('img');
+  image.src = _icons_vert_png__WEBPACK_IMPORTED_MODULE_3__;
+  image.alt = 'threeDots';
+  image.style.cursor = 'move';
+  image.removeEventListener('mousedown', _remove_task_js__WEBPACK_IMPORTED_MODULE_5__["default"]);
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/edit-task.js":
+/*!**********************************!*\
+  !*** ./src/modules/edit-task.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ editElement)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+
+function editElement(event) {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
+  // Gets the value of the input
+  const newDescription = event.target.value;
+
+  // Gets the class index of the parent
+  const parentClass = event.target.parentNode.parentNode.className;
+  let index = parentClass.replace(/\D/g, '');
+  index = parseInt(index, 10);
+  tasks.editTask(newDescription, index);
+
+  // Stores new edited data
+  localStorage.setItem('data', JSON.stringify(tasks.list));
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/highlight.js":
+/*!**********************************!*\
+  !*** ./src/modules/highlight.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "highlight": () => (/* binding */ highlight),
+/* harmony export */   "unhighlight": () => (/* binding */ unhighlight)
+/* harmony export */ });
+/* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../icons/vert.png */ "./icons/vert.png");
+/* harmony import */ var _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../icons/trashcan.png */ "./icons/trashcan.png");
+/* harmony import */ var _remove_task_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./remove-task.js */ "./src/modules/remove-task.js");
+
+
+
+
+// Highlights the li element and displays the trashcan icon
+function highlight(event) {
+  const clickedElement = event.target;
+  const parent = clickedElement.parentNode.parentNode;
+  parent.classList.add('highlight');
+  const image = parent.querySelector('img');
+  image.src = _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_1__;
+  image.alt = 'trashicon';
+  image.style.cursor = 'pointer';
+  image.addEventListener('mousedown', _remove_task_js__WEBPACK_IMPORTED_MODULE_2__["default"]);
+}
+
+// Unhighlights the li element and changes back the icon
+function unhighlight(event) {
+  const clickedElement = event.target;
+  const parent = clickedElement.parentNode.parentNode;
+  parent.classList.remove('highlight');
+  const image = parent.querySelector('img');
+  image.src = _icons_vert_png__WEBPACK_IMPORTED_MODULE_0__;
+  image.alt = 'threeDots';
+  image.style.cursor = 'move';
+  image.removeEventListener('mousedown', _remove_task_js__WEBPACK_IMPORTED_MODULE_2__["default"]);
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/mark-completed.js":
+/*!***************************************!*\
+  !*** ./src/modules/mark-completed.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ markComplete)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+
+function markComplete(event) {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
+  // Gets the class index of the parent
+  const parentClass = event.target.parentNode.parentNode.className;
+  let index = parentClass.replace(/\D/g, '');
+  index = parseInt(index, 10);
+
+  const parent = event.target.parentNode.parentNode;
+  const input = parent.querySelector('.task');
+  if (event.target.checked) {
+    input.style.textDecoration = 'line-through';
+    input.style.color = 'gray';
+    tasks.toggleComplete(index);
+    localStorage.setItem('data', JSON.stringify(tasks.list));
+  } else {
+    input.style.textDecoration = 'none';
+    input.style.color = 'black';
+    tasks.toggleComplete(index);
+    localStorage.setItem('data', JSON.stringify(tasks.list));
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/remove-completed.js":
+/*!*****************************************!*\
+  !*** ./src/modules/remove-completed.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ removeCompletedElements)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+
+function removeCompletedElements() {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
+  const parent = document.querySelector('ul');
+  const element = parent.querySelectorAll('li');
+  for (let i = 0; i < element.length; i += 1) {
+    const task = element[i].querySelector('.task');
+    if (task.style.textDecoration === 'line-through') {
+      element[i].remove();
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/remove-task.js":
+/*!************************************!*\
+  !*** ./src/modules/remove-task.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ removeItem)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+/* harmony import */ var _update_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update-dom.js */ "./src/modules/update-dom.js");
+
+
+
+function removeItem(event) {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
+  let index = event.target.parentNode.className;
+  index = parseInt(index, 10);
+  tasks.removeTask(index);
+
+  // Removes element from DOM
+  event.target.parentNode.remove();
+
+  // Updates DOM indexes
+  (0,_update_dom_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+
+  // Updates local storage without the removed element
+  localStorage.setItem('data', JSON.stringify(tasks.list));
+}
+
+
+/***/ }),
+
 /***/ "./src/modules/tasks.js":
 /*!******************************!*\
   !*** ./src/modules/tasks.js ***!
@@ -582,6 +1027,61 @@ class ToDoTasks {
       this.list[i].index = i + 1;
     }
   }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/update-dom.js":
+/*!***********************************!*\
+  !*** ./src/modules/update-dom.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ updateDomIndexes)
+/* harmony export */ });
+// Updates the indexes of each element
+function updateDomIndexes() {
+  const parent = document.querySelector('ul');
+  const elements = parent.querySelectorAll('li');
+  for (let i = 0; i < elements.length; i += 1) {
+    elements[i].className = i + 1;
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/update-task.js":
+/*!************************************!*\
+  !*** ./src/modules/update-task.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ updateTaskListAndLocalStorage)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/modules/tasks.js");
+
+
+function updateTaskListAndLocalStorage() {
+  const tasks = new _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  tasks.list = JSON.parse(localStorage.getItem('data'));
+  const items = document.querySelectorAll('li');
+  items.forEach((item) => {
+    const input = item.querySelector('.task');
+    tasks.list[item.className - 1].description = input.value;
+    tasks.list[item.className - 1].index = parseInt(item.className, 10);
+    tasks.list[item.className - 1].completed = input.style.textDecoration === 'line-through';
+    const check = item.querySelector('.check');
+    if (input.style.textDecoration === 'line-through') {
+      check.checked = true;
+    }
+  });
+  localStorage.setItem('data', JSON.stringify(tasks.list));
 }
 
 
@@ -720,234 +1220,26 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
-/* harmony import */ var _icons_vert_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../icons/vert.png */ "./icons/vert.png");
-/* harmony import */ var _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../icons/trashcan.png */ "./icons/trashcan.png");
-/* harmony import */ var _modules_tasks_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tasks.js */ "./src/modules/tasks.js");
-
-
-// Create image for more options
-
-
-// Create trashcan image
+/* harmony import */ var _modules_tasks_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tasks.js */ "./src/modules/tasks.js");
+/* harmony import */ var _modules_add_task_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/add-task.js */ "./src/modules/add-task.js");
+/* harmony import */ var _modules_clear_all_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/clear-all.js */ "./src/modules/clear-all.js");
+/* harmony import */ var _modules_add_and_display_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/add-and-display.js */ "./src/modules/add-and-display.js");
 
 
 // Create ToDoTasks object
 
 
-const tasks = new _modules_tasks_js__WEBPACK_IMPORTED_MODULE_3__["default"]();
+
+
+
+
+
+
+const tasks = new _modules_tasks_js__WEBPACK_IMPORTED_MODULE_1__["default"]();
 
 if (localStorage.getItem('data') !== null) {
   // If there is data stored, set collection to that data
   tasks.list = JSON.parse(localStorage.getItem('data'));
-}
-
-const list = document.querySelector('ul');
-
-// Updates the indexes of each element
-function updateDomIndexes() {
-  const parent = document.querySelector('ul');
-  const elements = parent.querySelectorAll('li');
-  for (let i = 0; i < elements.length; i += 1) {
-    elements[i].className = i + 1;
-  }
-}
-
-function removeItem(event) {
-  let index = event.target.parentNode.className;
-  index = parseInt(index, 10);
-  tasks.removeTask(index);
-
-  // Removes element from DOM
-  event.target.parentNode.remove();
-
-  // Updates DOM indexes
-  updateDomIndexes();
-
-  // Updates local storage without the removed element
-  localStorage.setItem('data', JSON.stringify(tasks.list));
-}
-
-// Highlights the li element and displays the trashcan icon
-function highlight(event) {
-  const clickedElement = event.target;
-  const parent = clickedElement.parentNode.parentNode;
-  parent.classList.add('highlight');
-  const image = parent.querySelector('img');
-  image.src = _icons_trashcan_png__WEBPACK_IMPORTED_MODULE_2__;
-  image.alt = 'trashicon';
-  image.style.cursor = 'pointer';
-  image.addEventListener('mousedown', removeItem);
-}
-
-// Unhighlights the li element and changes back the icon
-function unhighlight(event) {
-  const clickedElement = event.target;
-  const parent = clickedElement.parentNode.parentNode;
-  parent.classList.remove('highlight');
-  const image = parent.querySelector('img');
-  image.src = _icons_vert_png__WEBPACK_IMPORTED_MODULE_1__;
-  image.alt = 'threeDots';
-  image.style.cursor = 'move';
-  image.removeEventListener('mousedown', removeItem);
-}
-
-function editElement(event) {
-  // Gets the value of the input
-  const newDescription = event.target.value;
-
-  // Gets the class index of the parent
-  const parentClass = event.target.parentNode.parentNode.className;
-  let index = parentClass.replace(/\D/g, '');
-  index = parseInt(index, 10);
-  tasks.editTask(newDescription, index);
-
-  // Stores new edited data
-  localStorage.setItem('data', JSON.stringify(tasks.list));
-}
-
-function markComplete(event) {
-  // Gets the class index of the parent
-  const parentClass = event.target.parentNode.parentNode.className;
-  let index = parentClass.replace(/\D/g, '');
-  index = parseInt(index, 10);
-
-  const parent = event.target.parentNode.parentNode;
-  const input = parent.querySelector('.task');
-  if (event.target.checked) {
-    input.style.textDecoration = 'line-through';
-    input.style.color = 'gray';
-    tasks.toggleComplete(index);
-    localStorage.setItem('data', JSON.stringify(tasks.list));
-  } else {
-    input.style.textDecoration = 'none';
-    input.style.color = 'black';
-    tasks.toggleComplete(index);
-    localStorage.setItem('data', JSON.stringify(tasks.list));
-  }
-}
-
-function updateTaskListAndLocalStorage() {
-  const items = document.querySelectorAll('li');
-  items.forEach((item) => {
-    const input = item.querySelector('.task');
-    tasks.list[item.className - 1].description = input.value;
-    tasks.list[item.className - 1].index = parseInt(item.className, 10);
-    tasks.list[item.className - 1].completed = input.style.textDecoration === 'line-through';
-    const check = item.querySelector('.check');
-    if (input.style.textDecoration === 'line-through') {
-      check.checked = true;
-    }
-  });
-  localStorage.setItem('data', JSON.stringify(tasks.list));
-}
-
-let dragged;
-
-function handleDragStart(e) {
-  this.style.opacity = '0.5';
-
-  dragged = e.target;
-
-  e.dataTransfer.effectAllowed = 'move';
-  e.dataTransfer.setData('text/html', this.innerHTML);
-}
-
-function handleDragEnd() {
-  this.style.opacity = '1';
-  const items = document.querySelectorAll('li');
-  items.forEach((item) => {
-    item.style.border = 'none';
-  });
-  this.style.border = 'none';
-}
-
-function handleDragOver(e) {
-  if (e.preventDefault) {
-    e.preventDefault();
-  }
-  return false;
-}
-
-function handleDragEnter() {
-  this.style.border = '3px solid blue';
-}
-
-function handleDragLeave() {
-  this.style.border = 'none';
-}
-
-function handleDrop(e) {
-  e.stopPropagation();
-  if (dragged !== this) {
-    dragged.innerHTML = this.innerHTML;
-    this.innerHTML = e.dataTransfer.getData('text/html');
-  }
-
-  const items = document.querySelectorAll('li');
-  items.forEach((item) => {
-    // Add event listeners to checkbox input
-    const check = item.querySelector('.check');
-    check.addEventListener('change', markComplete);
-
-    const input = item.querySelector('.task');
-    input.addEventListener('input', editElement);
-
-    const threeDots = item.querySelector('img');
-    threeDots.addEventListener('mousedown', () => {
-      item.setAttribute('draggable', true);
-    });
-    threeDots.addEventListener('mouseout', () => {
-      item.setAttribute('draggable', false);
-    });
-  });
-
-  updateTaskListAndLocalStorage();
-
-  return false;
-}
-
-// Adds a single task to the DOM
-function addSingleTask(taskDescription, taskIndex, taskCompleted) {
-  const item = document.createElement('li');
-  item.className = taskIndex;
-  item.innerHTML = `<div><input type="checkbox" class="check"><input type="text" class="task" value="${taskDescription}" /></div><img src="${_icons_vert_png__WEBPACK_IMPORTED_MODULE_1__}" alt="threeDots" />`;
-  list.appendChild(item);
-
-  // Add cursor: move to three dots image
-  const threeDots = item.querySelector('img');
-  threeDots.addEventListener('mousedown', () => {
-    item.setAttribute('draggable', true);
-  });
-  threeDots.addEventListener('mouseout', () => {
-    item.setAttribute('draggable', false);
-  });
-  // item.style.cursor = "move";
-  threeDots.style.cursor = 'move';
-  threeDots.setAttribute('draggable', false);
-
-  item.addEventListener('dragstart', handleDragStart);
-  item.addEventListener('dragover', handleDragOver);
-  item.addEventListener('dragenter', handleDragEnter);
-  item.addEventListener('dragleave', handleDragLeave);
-  item.addEventListener('dragend', handleDragEnd);
-  item.addEventListener('drop', handleDrop);
-
-  // Add event listeners when focus and unfocus
-  item.addEventListener('focusin', highlight);
-  item.addEventListener('focusout', unhighlight);
-
-  // Add event listeners to checkbox input
-  const check = item.querySelector('.check');
-  check.addEventListener('change', markComplete);
-
-  const input = item.querySelector('.task');
-  input.addEventListener('input', editElement);
-
-  if (taskCompleted) {
-    check.checked = true;
-    input.style.textDecoration = 'line-through';
-    input.style.color = 'gray';
-  }
 }
 
 function displayTasks(arr) {
@@ -956,7 +1248,7 @@ function displayTasks(arr) {
 
   // Iterates the array and displays them
   for (let i = 0; i < arr.length; i += 1) {
-    addSingleTask(arr[i].description, i + 1, arr[i].completed);
+    (0,_modules_add_task_js__WEBPACK_IMPORTED_MODULE_2__["default"])(arr[i].description, i + 1, arr[i].completed);
   }
 }
 
@@ -966,42 +1258,10 @@ displayTasks(tasks.list);
 // Get the main-input element
 const mainInput = document.querySelector('.main-input');
 
-// Adds the tasks to the array and the DOM
-function addAndDisplay(event) {
-  if (event.key === 'Enter') {
-    tasks.addTask(mainInput.value);
-    addSingleTask(
-      tasks.list[tasks.list.length - 1].description,
-      tasks.list[tasks.list.length - 1].index,
-    );
-
-    mainInput.value = '';
-    localStorage.setItem('data', JSON.stringify(tasks.list));
-  }
-}
-
-mainInput.addEventListener('keydown', addAndDisplay);
-
-function removeCompletedElements() {
-  const parent = document.querySelector('ul');
-  const element = parent.querySelectorAll('li');
-  for (let i = 0; i < element.length; i += 1) {
-    const task = element[i].querySelector('.task');
-    if (task.style.textDecoration === 'line-through') {
-      element[i].remove();
-    }
-  }
-}
-
-function clearAllCompleted() {
-  tasks.clearCompleted();
-  localStorage.setItem('data', JSON.stringify(tasks.list));
-  removeCompletedElements();
-  updateDomIndexes();
-}
+mainInput.addEventListener('keydown', _modules_add_and_display_js__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
 const clear = document.querySelector('a');
-clear.addEventListener('click', clearAllCompleted);
+clear.addEventListener('click', _modules_clear_all_js__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
 })();
 
